@@ -2,7 +2,7 @@
 (function(){
     'use strict';
 
-    const API_BASE_URL = 'http://localhost:3001';
+    const API_BASE_URL = 'http://31.97.237.35:3001';
 
     // Main API call function
     async function _callAI(prompt, systemMsg) {
