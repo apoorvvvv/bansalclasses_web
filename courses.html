@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Courses - Bansal Classes Patna</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth;
+        }
+        .nav-active {
+            color: #4f46e5;
+            font-weight: 600;
+        }
+        .course-detail-card {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease-in-out, padding 0.5s ease-in-out, opacity 0.5s ease-in-out;
+            opacity: 0;
+            padding-top: 0;
+            padding-bottom: 0;
+        }
+        .course-detail-card.show {
+            max-height: 1000px; /* Adjust as needed */
+            opacity: 1;
+            padding-top: 2rem;
+            padding-bottom: 2rem;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+
+    <!-- Header -->
+    <header id="header" class="bg-white shadow-md fixed w-full z-20 top-0">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="index.html" class="flex items-center">
+                <img src="image/logo.webp" alt="Bansal Classes Patna" class="h-12 w-auto hover:opacity-80 transition-opacity duration-300">
+            </a>
+            <div class="hidden md:flex items-center space-x-8">
+                <a href="index.html" class="text-gray-600 hover:text-indigo-600" data-translate-key="navHome">Home</a>
+                <a href="about.html" class="text-gray-600 hover:text-indigo-600" data-translate-key="navAbout">About</a>
+                <a href="courses.html" class="nav-active" data-translate-key="navCourses">Courses</a>
+                <a href="faculty.html" class="text-gray-600 hover:text-indigo-600" data-translate-key="navFaculty">Faculty</a>
+                <a href="reviews.html" class="text-gray-600 hover:text-indigo-600">Reviews</a>
+                <a href="contact.html" class="text-gray-600 hover:text-indigo-600" data-translate-key="navContact">Contact</a>
+                <button id="language-toggle-btn" class="text-gray-600 hover:text-indigo-600 font-semibold text-sm border-2 rounded-full px-3 py-1">EN</button>
+            </div>
+            <button id="mobile-menu-button" class="md:hidden flex items-center">
+                 <i class="fas fa-bars text-indigo-600 text-2xl"></i>
+            </button>
+        </nav>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white">
+            <a href="index.html" class="block py-2 px-4 text-sm text-gray-700 hover:bg-indigo-50" data-translate-key="navHome">Home</a>
+            <a href="about.html" class="block py-2 px-4 text-sm text-gray-700 hover:bg-indigo-50" data-translate-key="navAbout">About</a>
+            <a href="courses.html" class="block py-2 px-4 text-sm text-indigo-600 font-semibold hover:bg-indigo-50" data-translate-key="navCourses">Courses</a>
+            <a href="faculty.html" class="block py-2 px-4 text-sm text-gray-700 hover:bg-indigo-50" data-translate-key="navFaculty">Faculty</a>
+            <a href="reviews.html" class="block py-2 px-4 text-sm text-gray-700 hover:bg-indigo-50">Reviews</a>
+            <a href="contact.html" class="block py-2 px-4 text-sm text-gray-700 hover:bg-indigo-50" data-translate-key="navContact">Contact</a>
+        </div>
+    </header>
+
+    <main class="pt-24">
+        <!-- Courses Section -->
+        <section id="courses" class="py-16 md:py-24 bg-white">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-800 inline-block relative pb-3" data-translate-key="coursesTitle">
+                        Our Premier Courses
+                        <span class="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-24 h-1 bg-indigo-600 rounded"></span>
+                    </h2>
+                    <p class="text-lg text-gray-600 mt-6 max-w-2xl mx-auto" data-translate-key="coursesSubtitle">Structured programs designed for comprehensive preparation and guaranteed success.</p>
+                </div>
+
+                <div id="course-cards" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Course Card 1: IIT-JEE -->
+                    <div class="course-card bg-gray-50 rounded-lg shadow-lg p-8 transform hover:-translate-y-2 transition duration-300 flex flex-col">
+                        <div class="text-indigo-600 mb-4"><i class="fas fa-atom fa-3x"></i></div>
+                        <h3 class="text-2xl font-bold mb-2 text-gray-800" data-translate-key="jeeTitle">IIT-JEE (Main + Adv)</h3>
+                        <p class="text-gray-600 mb-6 flex-grow" data-translate-key="jeeDesc">An intensive program for Class XI, XII, and pass-out students targeting the prestigious Indian Institutes of Technology.</p>
+                        <button class="learn-more-btn mt-auto bg-indigo-100 text-indigo-700 font-semibold py-2 px-4 rounded-full hover:bg-indigo-200 transition duration-300" data-course="jee" data-translate-key="learnMore">Learn More</button>
+                    </div>
+                    <!-- Course Card 2: NEET -->
+                    <div class="course-card bg-gray-50 rounded-lg shadow-lg p-8 transform hover:-translate-y-2 transition duration-300 flex flex-col">
+                        <div class="text-indigo-600 mb-4"><i class="fas fa-stethoscope fa-3x"></i></div>
+                        <h3 class="text-2xl font-bold mb-2 text-gray-800" data-translate-key="neetTitle">NEET (Medical)</h3>
+                        <p class="text-gray-600 mb-6 flex-grow" data-translate-key="neetDesc">A specialized curriculum for medical aspirants aiming to secure a seat in top medical colleges through NEET-UG.</p>
+                        <button class="learn-more-btn mt-auto bg-indigo-100 text-indigo-700 font-semibold py-2 px-4 rounded-full hover:bg-indigo-200 transition duration-300" data-course="neet" data-translate-key="learnMore">Learn More</button>
+                    </div>
+                    <!-- Course Card 3: Foundation -->
+                    <div class="course-card bg-gray-50 rounded-lg shadow-lg p-8 transform hover:-translate-y-2 transition duration-300 flex flex-col">
+                        <div class="text-indigo-600 mb-4"><i class="fas fa-cogs fa-3x"></i></div>
+                        <h3 class="text-2xl font-bold mb-2 text-gray-800" data-translate-key="foundationTitle">Foundation Courses</h3>
+                        <p class="text-gray-600 mb-6 flex-grow" data-translate-key="foundationDesc">Early-start programs for students of Class IX & X to build a strong base for future competitive exams like NTSE and Olympiads.</p>
+                        <button class="learn-more-btn mt-auto bg-indigo-100 text-indigo-700 font-semibold py-2 px-4 rounded-full hover:bg-indigo-200 transition duration-300" data-course="foundation" data-translate-key="learnMore">Learn More</button>
+                    </div>
+                </div>
+
+                <!-- Course Details Container -->
+                <div id="course-details-container" class="mt-8"></div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-8">
+        <div class="container mx-auto px-6 text-center">
+            <p data-translate-key="footerRights">&copy; 2024 Bansal Classes Patna. All Rights Reserved.</p>
+            <div class="mt-4 flex justify-center space-x-6">
+                <a href="#" class="hover:text-indigo-400"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" class="hover:text-indigo-400"><i class="fab fa-twitter"></i></a>
+                <a href="#" class="hover:text-indigo-400"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // --- LANGUAGE TRANSLATION ---
+            const languageToggleBtn = document.getElementById('language-toggle-btn');
+            let currentLanguage = localStorage.getItem('language') || 'en';
+
+            const translations = {
+                en: {
+                    coachingName: "Bansal Classes Patna",
+                    navHome: "Home", navAbout: "About", navCourses: "Courses", navFaculty: "Faculty", navTestimonials: "Testimonials", navContact: "Contact",
+                    coursesTitle: "Our Premier Courses",
+                    coursesSubtitle: "Structured programs designed for comprehensive preparation and guaranteed success.",
+                    jeeTitle: "IIT-JEE (Main + Adv)",
+                    jeeDesc: "An intensive program for Class XI, XII, and pass-out students targeting the prestigious Indian Institutes of Technology.",
+                    neetTitle: "NEET (Medical)",
+                    neetDesc: "A specialized curriculum for medical aspirants aiming to secure a seat in top medical colleges through NEET-UG.",
+                    foundationTitle: "Foundation Courses",
+                    foundationDesc: "Early-start programs for students of Class IX & X to build a strong base for future competitive exams like NTSE and Olympiads.",
+                    learnMore: "Learn More",
+                    footerRights: "© 2024 Bansal Classes Patna. All Rights Reserved.",
+                    detailJeeTitle: "Detailed Syllabus for IIT-JEE",
+                    detailJeeDesc: "Our IIT-JEE program is a rigorous course covering the depths of Physics, Chemistry, and Mathematics. The curriculum is designed to build problem-solving skills and a strong conceptual foundation, preparing students for both JEE Main and Advanced levels.",
+                    detailJeeFeat1: "In-depth theory sessions", detailJeeFeat2: "Extensive problem-solving practice", detailJeeFeat3: "Regular mock tests and analysis", detailJeeFeat4: "Personalized doubt clearing",
+                    detailNeetTitle: "Detailed Syllabus for NEET",
+                    detailNeetDesc: "Our NEET program focuses on Biology, Physics, and Chemistry, tailored specifically for the medical entrance examination. We emphasize a deep understanding of biological concepts and application-based learning to help students excel.",
+                    detailNeetFeat1: "Comprehensive biology coverage", detailNeetFeat2: "Focus on NCERT curriculum", detailNeetFeat3: "Mock tests based on latest NEET pattern", detailNeetFeat4: "Expert guidance for medical careers",
+                    detailFoundationTitle: "Detailed Syllabus for Foundation Courses",
+                    detailFoundationDesc: "The Foundation course for classes IX & X is designed to build a strong base in Science and Mathematics. This program helps students excel in school exams and prepares them for competitive exams like NTSE, Olympiads, and future engineering or medical entrances.",
+                    detailFoundationFeat1: "Builds strong fundamentals", detailFoundationFeat2: "NTSE and Olympiad preparation", detailFoundationFeat3: "Enhances logical and analytical skills", detailFoundationFeat4: "Smooth transition to higher classes",
+                },
+                hi: {
+                    coachingName: "बंसल क्लासेस पटना",
+                    navHome: "होम", navAbout: "हमारे बारे में", navCourses: "कोर्स", navFaculty: "फैकल्टी", navTestimonials: "प्रशंसापत्र", navContact: "संपर्क",
+                    coursesTitle: "हमारे प्रमुख कोर्स",
+                    coursesSubtitle: "व्यापक तैयारी और निश्चित सफलता के लिए डिज़ाइन किए गए संरचित कार्यक्रम।",
+                    jeeTitle: "आईआईटी-जेईई (मेन + एडवांस्ड)",
+                    jeeDesc: "प्रतिष्ठित भारतीय प्रौद्योगिकी संस्थानों को लक्षित करने वाले ग्यारहवीं, बारहवीं और पास-आउट छात्रों के लिए एक गहन कार्यक्रम।",
+                    neetTitle: "नीट (मेडिकल)",
+                    neetDesc: "नीट-यूजी के माध्यम से शीर्ष मेडिकल कॉलेजों में सीट सुरक्षित करने का लक्ष्य रखने वाले मेडिकल उम्मीदवारों के लिए एक विशेष पाठ्यक्रम।",
+                    foundationTitle: "फाउंडेशन कोर्स",
+                    foundationDesc: "एनटीएसई और ओलंपियाड जैसी भविष्य की प्रतियोगी परीक्षाओं के लिए एक मजबूत आधार बनाने के लिए नौवीं और दसवीं कक्षा के छात्रों के लिए अर्ली-स्टार्ट कार्यक्रम।",
+                    learnMore: "और जानें",
+                    footerRights: "© 2024 बंसल क्लासेस पटना। सर्वाधिकार सुरक्षित।",
+                    detailJeeTitle: "आईआईटी-जेईई के लिए विस्तृत सिलेबस",
+                    detailJeeDesc: "हमारा आईआईटी-जेईई कार्यक्रम भौतिकी, रसायन विज्ञान और गणित की गहराइयों को कवर करने वाला एक कठोर पाठ्यक्रम है। पाठ्यक्रम को समस्या-समाधान कौशल और एक मजबूत वैचारिक आधार बनाने के लिए डिज़ाइन किया गया है, जो छात्रों को जेईई मेन और एडवांस्ड दोनों स्तरों के लिए तैयार करता है।",
+                    detailJeeFeat1: "गहन सिद्धांत सत्र", detailJeeFeat2: "व्यापक समस्या-समाधान अभ्यास", detailJeeFeat3: "नियमित मॉक टेस्ट और विश्लेषण", detailJeeFeat4: "व्यक्तिगत संदेह समाशोधन",
+                    detailNeetTitle: "नीट के लिए विस्तृत सिलेबस",
+                    detailNeetDesc: "हमारा नीट कार्यक्रम जीव विज्ञान, भौतिकी और रसायन विज्ञान पर केंद्रित है, जो विशेष रूप से मेडिकल प्रवेश परीक्षा के लिए तैयार किया गया है। हम छात्रों को उत्कृष्टता प्राप्त करने में मदद करने के लिए जैविक अवधारणाओं और अनुप्रयोग-आधारित शिक्षा की गहरी समझ पर जोर देते हैं।",
+                    detailNeetFeat1: "व्यापक जीव विज्ञान कवरेज", detailNeetFeat2: "एनसीईआरटी पाठ्यक्रम पर ध्यान दें", detailNeetFeat3: "नवीनतम नीट पैटर्न पर आधारित मॉक टेस्ट", detailNeetFeat4: "चिकित्सा करियर के लिए विशेषज्ञ मार्गदर्शन",
+                    detailFoundationTitle: "फाउंडेशन कोर्स के लिए विस्तृत सिलेबस",
+                    detailFoundationDesc: "नौवीं और दसवीं कक्षा के लिए फाउंडेशन कोर्स विज्ञान और गणित में एक मजबूत आधार बनाने के लिए डिज़ाइन किया गया है। यह कार्यक्रम छात्रों को स्कूल की परीक्षाओं में उत्कृष्टता प्राप्त करने में मदद करता है और उन्हें एनटीएसई, ओलंपियाड और भविष्य की इंजीनियरिंग या मेडिकल प्रवेश परीक्षाओं जैसी प्रतियोगी परीक्षाओं के लिए तैयार करता है।",
+                    detailFoundationFeat1: "मजबूत बुनियादी सिद्धांतों का निर्माण करता है", detailFoundationFeat2: "एनटीएसई और ओलंपियाड की तैयारी", detailFoundationFeat3: "तार्किक और विश्लेषणात्मक कौशल को बढ़ाता है", detailFoundationFeat4: "उच्च कक्षाओं में सहज संक्रमण",
+                }
+            };
+            
+            function translatePage() {
+                document.querySelectorAll('[data-translate-key]').forEach(el => {
+                    const key = el.getAttribute('data-translate-key');
+                    el.innerText = translations[currentLanguage][key] || el.innerText;
+                });
+                languageToggleBtn.innerText = currentLanguage.toUpperCase();
+            }
+
+            languageToggleBtn.addEventListener('click', () => {
+                currentLanguage = currentLanguage === 'en' ? 'hi' : 'en';
+                localStorage.setItem('language', currentLanguage);
+                translatePage();
+            });
+
+            // --- COURSE DETAILS LOGIC (with translation) ---
+            const courseDetailsContainer = document.getElementById('course-details-container');
+            const learnMoreButtons = document.querySelectorAll('.learn-more-btn');
+            
+            const courseData = {
+                jee: {
+                    titleKey: "detailJeeTitle",
+                    descriptionKey: "detailJeeDesc",
+                    featureKeys: ["detailJeeFeat1", "detailJeeFeat2", "detailJeeFeat3", "detailJeeFeat4"]
+                },
+                neet: {
+                    titleKey: "detailNeetTitle",
+                    descriptionKey: "detailNeetDesc",
+                    featureKeys: ["detailNeetFeat1", "detailNeetFeat2", "detailNeetFeat3", "detailNeetFeat4"]
+                },
+                foundation: {
+                    titleKey: "detailFoundationTitle",
+                    descriptionKey: "detailFoundationDesc",
+                    featureKeys: ["detailFoundationFeat1", "detailFoundationFeat2", "detailFoundationFeat3", "detailFoundationFeat4"]
+                }
+            };
+
+            let currentOpenCourse = null;
+
+            learnMoreButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const courseKey = button.dataset.course;
+                    
+                    if (currentOpenCourse === courseKey) {
+                        courseDetailsContainer.innerHTML = '';
+                        currentOpenCourse = null;
+                        return;
+                    }
+
+                    currentOpenCourse = courseKey;
+                    const details = courseData[courseKey];
+                    const lang = currentLanguage;
+
+                    const detailCardHTML = `
+                        <div class="course-detail-card bg-indigo-50 p-8 rounded-lg shadow-inner border border-indigo-200">
+                            <h3 class="text-3xl font-bold text-indigo-800 mb-4">${translations[lang][details.titleKey]}</h3>
+                            <p class="text-gray-700 mb-6">${translations[lang][details.descriptionKey]}</p>
+                            <ul class="list-disc list-inside space-y-2 text-gray-700">
+                                ${details.featureKeys.map(key => `<li>${translations[lang][key]}</li>`).join('')}
+                            </ul>
+                        </div>
+                    `;
+                    
+                    courseDetailsContainer.innerHTML = detailCardHTML;
+
+                    setTimeout(() => {
+                        const detailCard = courseDetailsContainer.querySelector('.course-detail-card');
+                        if(detailCard) {
+                            detailCard.classList.add('show');
+                        }
+                    }, 10);
+                });
+            });
+            
+            // Initial translation on page load
+            translatePage();
+        });
+    </script>
+
+    <!-- WhatsApp Floating Button -->
+    <a href="https://web.whatsapp.com/send?phone=918521793338&text=Hello!%20I%27m%20interested" target="_blank" class="fixed bottom-20 left-4 bg-green-500 hover:bg-green-600 text-white p-4 rounded-full shadow-lg transition-all duration-300 z-50 group w-14 h-14 flex items-center justify-center">
+        <i class="fab fa-whatsapp text-2xl"></i>
+        <span class="absolute left-full ml-3 top-1/2 transform -translate-y-1/2 bg-gray-800 text-white text-sm px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap">
+            Chat on WhatsApp
+        </span>
+    </a>
+
+</body>
+</html>
+

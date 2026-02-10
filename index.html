@@ -1,0 +1,891 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bansal Classes Patna - Premier Coaching for IIT-JEE & NEET</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        /* Loading Animation */
+        .loading {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            transition: opacity 0.5s ease-out;
+        }
+
+        .loading.hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .spinner {
+            width: 50px;
+            height: 50px;
+            border: 3px solid #e5e7eb;
+            border-top: 3px solid #4f46e5;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        .hero-bg {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('image/bg.png');
+            background-size: cover;
+            background-position: center;
+            animation: heroFadeIn 2s ease-in-out;
+        }
+
+        @keyframes heroFadeIn {
+            from { opacity: 0; transform: scale(1.1); }
+            to { opacity: 1; transform: scale(1); }
+        }
+        .section-title {
+            font-size: 1.875rem;
+            font-weight: 700;
+            color: #1f2937;
+            margin-bottom: 0.5rem;
+            text-align: center;
+        }
+        @media (min-width: 768px) {
+            .section-title {
+                font-size: 2.25rem;
+            }
+        }
+        .section-subtitle {
+            font-size: 1.125rem;
+            color: #4b5563;
+            margin-bottom: 2rem;
+            text-align: center;
+            max-width: 42rem;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        @media (min-width: 768px) {
+            .section-subtitle {
+                margin-bottom: 3rem;
+            }
+        }
+        .nav-active {
+            color: #4f46e5; /* indigo-600 */
+            font-weight: 600;
+        }
+        .why-us-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        /* Slider */
+        .achievement-slide {
+            transition: opacity 0.7s ease-in-out;
+        }
+        /* FAQ Accordion */
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease-in-out;
+        }
+        .faq-question i {
+            transition: transform 0.3s ease-in-out;
+        }
+        .faq-item.active .faq-question {
+            font-weight: 600;
+            color: #4f46e5;
+        }
+        .faq-item.active .faq-question i {
+            transform: rotate(180deg);
+        }
+    </style>
+  </head>
+<body class="bg-gray-50">
+    <!-- Loading Screen -->
+    <div id="loading" class="loading">
+        <div class="spinner"></div>
+    </div>
+
+    <!-- Header -->
+    <header id="header" class="bg-white shadow-md fixed w-full z-20 top-0">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="index.html" class="flex items-center">
+                <img src="image/logo.webp" alt="Bansal Classes Patna" class="h-12 w-auto hover:opacity-80 transition-opacity duration-300">
+            </a>
+            <div class="hidden md:flex items-center space-x-8">
+                <a href="index.html" class="nav-active" data-translate-key="navHome">Home</a>
+                <a href="about.html" class="text-gray-600 hover:text-indigo-600" data-translate-key="navAbout">About</a>
+                <a href="courses.html" class="text-gray-600 hover:text-indigo-600" data-translate-key="navCourses">Courses</a>
+                <a href="faculty.html" class="text-gray-600 hover:text-indigo-600" data-translate-key="navFaculty">Faculty</a>
+                <a href="reviews.html" class="text-gray-600 hover:text-indigo-600">Reviews</a>
+                <a href="contact.html" class="text-gray-600 hover:text-indigo-600" data-translate-key="navContact">Contact</a>
+                <button id="language-toggle-btn" class="text-gray-600 hover:text-indigo-600 font-semibold text-sm border-2 rounded-full px-3 py-1">EN</button>
+            </div>
+            <button id="mobile-menu-button" class="md:hidden flex items-center">
+                 <i class="fas fa-bars text-indigo-600 text-2xl"></i>
+            </button>
+        </nav>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white">
+            <a href="index.html" class="block py-2 px-4 text-sm text-gray-700 hover:bg-indigo-50" data-translate-key="navHome">Home</a>
+            <a href="about.html" class="block py-2 px-4 text-sm text-gray-700 hover:bg-indigo-50" data-translate-key="navAbout">About</a>
+            <a href="courses.html" class="block py-2 px-4 text-sm text-gray-700 hover:bg-indigo-50" data-translate-key="navCourses">Courses</a>
+            <a href="faculty.html" class="block py-2 px-4 text-sm text-gray-700 hover:bg-indigo-50" data-translate-key="navFaculty">Faculty</a>
+            <a href="reviews.html" class="block py-2 px-4 text-sm text-gray-700 hover:bg-indigo-50">Reviews</a>
+            <a href="contact.html" class="block py-2 px-4 text-sm text-gray-700 hover:bg-indigo-50" data-translate-key="navContact">Contact</a>
+        </div>
+    </header>
+
+    <main class="pt-16">
+        <!-- Hero Section -->
+        <section id="home" class="hero-bg text-white py-20 md:py-32">
+            <div class="container mx-auto px-6 text-center">
+                <h1 class="text-4xl md:text-6xl font-extrabold leading-tight mb-4" data-translate-key="heroTitle">Welcome to Bansal Classes Patna</h1>
+                <p class="text-lg md:text-2xl text-gray-200 mb-8" data-translate-key="heroSubtitle">Your Gateway to Success in Competitive Exams</p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                    <a href="courses.html" class="bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 px-8 rounded-full text-lg transition duration-300" data-translate-key="exploreCourses">Explore Our Courses</a>
+                    <button id="scholarship-btn" class="bg-gradient-to-r from-yellow-500 to-orange-500 hover:from-yellow-600 hover:to-orange-600 text-white font-bold py-3 px-8 rounded-full text-lg transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105" data-translate-key="scholarshipBtn">
+                        🎓 Scholarship Program
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Animated Statistics Section -->
+        <section id="stats" class="py-16 md:py-24 bg-indigo-50">
+            <div class="container mx-auto px-6">
+                 <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+                    <div>
+                        <h3 class="text-4xl md:text-5xl font-extrabold text-indigo-600 stat-counter" data-target="40" data-suffix="+" >0</h3>
+                        <p class="text-gray-600 font-medium mt-2" data-translate-key="statYears">Years of Success</p>
+                    </div>
+                    <div>
+                        <h3 class="text-4xl md:text-5xl font-extrabold text-indigo-600 stat-counter" data-target="30" data-suffix="L+">0</h3>
+                        <p class="text-gray-600 font-medium mt-2" data-translate-key="statStudents">Students</p>
+                    </div>
+                    <div>
+                        <h3 class="text-4xl md:text-5xl font-extrabold text-indigo-600 stat-counter" data-target="10" data-suffix="K+">0</h3>
+                        <p class="text-gray-600 font-medium mt-2" data-translate-key="statTeachers">Teachers</p>
+                    </div>
+                    <div>
+                        <h3 class="text-4xl md:text-5xl font-extrabold text-indigo-600 stat-counter" data-target="70" data-suffix="+">0</h3>
+                        <p class="text-gray-600 font-medium mt-2" data-translate-key="statCentres">Centres in India</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Core Values Section -->
+        <section class="py-16 md:py-24 bg-gradient-to-br from-indigo-50 to-blue-50 relative overflow-hidden">
+            <!-- Background Icons -->
+            <div class="absolute inset-0 opacity-10">
+                <div class="absolute top-20 left-10 text-6xl text-indigo-400"><i class="fas fa-book"></i></div>
+                <div class="absolute top-32 right-16 text-5xl text-indigo-500"><i class="fas fa-graduation-cap"></i></div>
+                <div class="absolute top-1/2 left-20 text-4xl text-indigo-300"><i class="fas fa-pencil-alt"></i></div>
+                <div class="absolute top-1/2 right-32 text-7xl text-indigo-400"><i class="fas fa-brain"></i></div>
+                <div class="absolute bottom-32 left-16 text-5xl text-indigo-500"><i class="fas fa-microscope"></i></div>
+                <div class="absolute bottom-20 right-10 text-4xl text-indigo-300"><i class="fas fa-atom"></i></div>
+                <div class="absolute top-40 left-1/2 text-3xl text-indigo-400"><i class="fas fa-calculator"></i></div>
+                <div class="absolute bottom-40 right-1/3 text-5xl text-indigo-500"><i class="fas fa-flask"></i></div>
+                <div class="absolute top-3/4 left-1/4 text-4xl text-indigo-300"><i class="fas fa-award"></i></div>
+                <div class="absolute bottom-1/4 right-1/4 text-6xl text-indigo-400"><i class="fas fa-lightbulb"></i></div>
+            </div>
+
+            <div class="container mx-auto px-6 relative z-10">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-800 inline-block relative pb-3" data-translate-key="coreValuesTitle">
+                        Our Core Values
+                        <span class="ml-2">
+                            <i class="fas fa-heart text-red-500"></i>
+                        </span>
+                        <span class="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-24 h-1 bg-indigo-600 rounded"></span>
+                    </h2>
+                    <p class="text-xl text-indigo-600 font-semibold mt-4 mb-8" data-translate-key="coreValuesSubtitle">Whole Differences</p>
+                </div>
+                <div class="max-w-4xl mx-auto">
+                    <div class="bg-white/80 backdrop-blur-sm rounded-2xl shadow-xl p-8 md:p-12 border border-white/20">
+                        <p class="text-lg text-gray-800 leading-relaxed text-center" data-translate-key="coreValuesDesc">
+                            Bansal Classes Patna is committed to academic excellence, student-focused learning, and preparing aspirants for success in both JEE and NEET. With a structured curriculum designed for engineering and medical entrance exams, the institute ensures rigorous training that meets the evolving patterns of JEE Main, JEE Advanced, and NEET. Integrity and dedication drive its teaching philosophy, fostering an environment where students receive personalized mentorship, doubt resolution, and strategic guidance. Through innovative learning methods, updated study material, and disciplined practice sessions, Bansal Classes Patna empowers students to excel in competitive exams and secure admissions to prestigious IITs and medical colleges across India.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+         <!-- Why Choose Us Section -->
+        <section class="py-16 md:py-24 bg-white">
+            <div class="container mx-auto px-6">
+                <h2 class="section-title" data-translate-key="whyChooseTitle">Why Choose Bansal Classes?</h2>
+                <p class="section-subtitle" data-translate-key="whyChooseSubtitle">We provide more than just classes; we provide a future.</p>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="why-us-card p-8 text-center bg-gray-50 rounded-lg shadow-md transition-all duration-300">
+                        <div class="text-indigo-600 mb-4"><i class="fas fa-chalkboard-teacher fa-3x"></i></div>
+                        <h3 class="text-2xl font-bold mb-2 text-gray-800" data-translate-key="featureFaculty">Expert Faculty</h3>
+                        <p class="text-gray-600" data-translate-key="featureFacultyDesc">Our team consists of highly experienced educators from top institutions.</p>
+                    </div>
+                    <div class="why-us-card p-8 text-center bg-gray-50 rounded-lg shadow-md transition-all duration-300">
+                        <div class="text-indigo-600 mb-4"><i class="fas fa-award fa-3x"></i></div>
+                        <h3 class="text-2xl font-bold mb-2 text-gray-800" data-translate-key="featureResults">Proven Results</h3>
+                        <p class="text-gray-600" data-translate-key="featureResultsDesc">A legacy of producing top rankers in IIT-JEE and NEET consistently.</p>
+                    </div>
+                    <div class="why-us-card p-8 text-center bg-gray-50 rounded-lg shadow-md transition-all duration-300">
+                        <div class="text-indigo-600 mb-4"><i class="fas fa-book-open fa-3x"></i></div>
+                        <h3 class="text-2xl font-bold mb-2 text-gray-800" data-translate-key="featureMaterial">Comprehensive Material</h3>
+                        <p class="text-gray-600" data-translate-key="featureMaterialDesc">Meticulously designed study material that covers every aspect of the syllabus.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Achievements Section -->
+        <section id="achievements" class="py-16 md:py-24 bg-gray-50">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-800 inline-block relative pb-3" data-translate-key="achievementsTitle">
+                        Our Achievements
+                        <span class="ml-2">
+                            <i class="fas fa-star text-yellow-400"></i>
+                            <i class="fas fa-star text-yellow-400"></i>
+                            <i class="fas fa-star text-yellow-400"></i>
+                        </span>
+                        <span class="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-24 h-1 bg-indigo-600 rounded"></span>
+                    </h2>
+                    <p class="text-lg text-gray-600 mt-6 max-w-2xl mx-auto" data-translate-key="achievementsSubtitle">A legacy of excellence and top ranks.</p>
+                </div>
+                <div class="relative max-w-4xl mx-auto">
+                    <!-- Slider Container -->
+                    <div id="achievement-slider" class="relative w-full overflow-hidden rounded-lg shadow-2xl" style="height: 400px; max-width: 1200px;">
+                        <!-- Slides -->
+                        <div class="achievement-slide absolute w-full h-full opacity-0">
+                            <img src="image/A1.png" alt="Top rank in IIT JEE" class="w-full h-full object-cover">
+                        </div>
+                        <div class="achievement-slide absolute w-full h-full opacity-0">
+                            <img src="https://placehold.co/1000x500/1e40af/ffffff?text=Top+Ranks+in+NEET" alt="Top ranks in NEET" class="w-full h-full object-cover">
+                        </div>
+                        <div class="achievement-slide absolute w-full h-full opacity-0">
+                            <img src="https://placehold.co/1000x500/1e40af/ffffff?text=NTSE+Scholars" alt="NTSE Scholars" class="w-full h-full object-cover">
+                        </div>
+                        <div class="achievement-slide absolute w-full h-full opacity-0">
+                             <img src="https://placehold.co/1000x500/1e40af/ffffff?text=KVPY+Fellows" alt="KVPY Fellows" class="w-full h-full object-cover">
+                        </div>
+                    </div>
+                    <!-- Navigation Dots -->
+                    <div id="achievement-dots" class="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2 z-10">
+                        <!-- Dots will be generated by JS -->
+                    </div>
+
+                    <!-- Prev/Next Buttons -->
+                    <button id="prev-btn" class="absolute top-1/2 left-0 transform -translate-y-1/2 -translate-x-4 bg-white bg-opacity-70 hover:bg-opacity-100 rounded-full p-3 shadow-md z-10 transition-transform hover:scale-110">
+                        <i class="fas fa-chevron-left text-indigo-600"></i>
+                    </button>
+                    <button id="next-btn" class="absolute top-1/2 right-0 transform -translate-y-1/2 translate-x-4 bg-white bg-opacity-70 hover:bg-opacity-100 rounded-full p-3 shadow-md z-10 transition-transform hover:scale-110">
+                        <i class="fas fa-chevron-right text-indigo-600"></i>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Upcoming Events & Batches Section -->
+        <section class="py-16 md:py-24 bg-gradient-to-r from-indigo-600 to-blue-600 text-white">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold inline-block relative pb-3">
+                        📢 Upcoming Events & Batches
+                        <span class="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-24 h-1 bg-yellow-400 rounded"></span>
+                    </h2>
+                    <p class="text-lg text-indigo-100 mt-4 max-w-2xl mx-auto">Stay updated with our latest admission dates, scholarship opportunities, and exam preparation schedules.</p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <!-- New Batch Admissions -->
+                    <div class="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20 hover:bg-white/20 transition-all duration-300">
+                        <div class="flex items-center mb-4">
+                            <div class="bg-yellow-400 rounded-full p-3 mr-4">
+                                <i class="fas fa-calendar-plus text-indigo-800 text-xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold">New Batch Admissions</h3>
+                                <p class="text-indigo-100">Starting Soon</p>
+                            </div>
+                        </div>
+                        <p class="text-sm text-indigo-100 mb-4">Limited seats available for our upcoming batches. Early registration gets priority access to premium study materials.</p>
+                        <div class="bg-red-500 text-white px-3 py-1 rounded-full text-sm font-semibold inline-block">
+                            🔥 Registration Open
+                        </div>
+                    </div>
+
+                    <!-- Scholarship Test -->
+                    <div class="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20 hover:bg-white/20 transition-all duration-300">
+                        <div class="flex items-center mb-4">
+                            <div class="bg-green-400 rounded-full p-3 mr-4">
+                                <i class="fas fa-trophy text-indigo-800 text-xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold">Scholarship Test</h3>
+                                <p class="text-indigo-100">Every Saturday</p>
+                            </div>
+                        </div>
+                        <p class="text-sm text-indigo-100 mb-4">Weekly scholarship tests for deserving students. Up to 100% fee waiver based on performance.</p>
+                        <div class="bg-green-500 text-white px-3 py-1 rounded-full text-sm font-semibold inline-block">
+                            📅 Next: Dec 15, 2024
+                        </div>
+                    </div>
+
+                    <!-- Exam Prep Camps -->
+                    <div class="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20 hover:bg-white/20 transition-all duration-300">
+                        <div class="flex items-center mb-4">
+                            <div class="bg-orange-400 rounded-full p-3 mr-4">
+                                <i class="fas fa-rocket text-indigo-800 text-xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold">Exam Prep Camps</h3>
+                                <p class="text-indigo-100">Intensive Training</p>
+                            </div>
+                        </div>
+                        <p class="text-sm text-indigo-100 mb-4">Special crash courses and mock test series designed for final exam preparation and revision.</p>
+                        <div class="bg-orange-500 text-white px-3 py-1 rounded-full text-sm font-semibold inline-block">
+                            🚀 Starting Jan 5, 2025
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Campus Tour Section -->
+        <section class="py-16 md:py-24 bg-gray-50">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-800 inline-block relative pb-3">
+                        🏢 Campus Tour
+                        <span class="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-24 h-1 bg-indigo-600 rounded"></span>
+                    </h2>
+                    <p class="text-lg text-gray-600 mt-4 max-w-2xl mx-auto">Take a virtual tour of our state-of-the-art campus facilities designed for optimal learning.</p>
+                </div>
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                    <!-- Video Section -->
+                    <div class="space-y-6">
+                        <div class="bg-white rounded-xl shadow-lg overflow-hidden">
+                            <div class="aspect-video">
+                                <iframe width="100%" height="100%" src="https://www.youtube.com/embed/OlDb_fk1b9A" title="Campus Tour Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                            </div>
+                        </div>
+                        <div class="bg-white rounded-xl shadow-lg overflow-hidden">
+                            <div class="aspect-video bg-black rounded-t-xl overflow-hidden">
+                                <video
+                                    controls
+                                    preload="metadata"
+                                    class="w-full h-full object-contain"
+                                    style="max-height: 100%;">
+                                    <source src="image/trailer.mp4" type="video/mp4">
+                                    <p>Your browser doesn't support HTML5 video. <a href="image/trailer.mp4">Download the video</a> instead.</p>
+                                </video>
+                            </div>
+                            <div class="p-4">
+                                <h4 class="font-semibold text-gray-800">Virtual Classroom Tour</h4>
+                                <p class="text-sm text-gray-600 mt-1">Experience our modern classrooms and interactive learning environment</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Campus Images Grid -->
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                            <div class="aspect-square">
+                                <img src="image/modern-classrooms.jpg" alt="Modern Classrooms" class="w-full h-full object-cover">
+                            </div>
+                            <div class="p-4">
+                                <h4 class="font-semibold text-gray-800">Modern Classrooms</h4>
+                                <p class="text-sm text-gray-600">AC classrooms with smart boards</p>
+                            </div>
+                        </div>
+                        <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                            <div class="aspect-square">
+                                <img src="image/study-library.jpg" alt="Study Library" class="w-full h-full object-cover">
+                            </div>
+                            <div class="p-4">
+                                <h4 class="font-semibold text-gray-800">Study Library</h4>
+                                <p class="text-sm text-gray-600">Extensive reference materials</p>
+                            </div>
+                        </div>
+                        <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                            <div class="aspect-square">
+                                <img src="image/study-groups.jpg" alt="Study Groups" class="w-full h-full object-cover">
+                            </div>
+                            <div class="p-4">
+                                <h4 class="font-semibold text-gray-800">Study Groups</h4>
+                                <p class="text-sm text-gray-600">Collaborative learning spaces</p>
+                            </div>
+                        </div>
+                        <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                            <div class="aspect-square">
+                                <img src="image/doubt-classes.jpg" alt="Doubt Classes" class="w-full h-full object-cover">
+                            </div>
+                            <div class="p-4">
+                                <h4 class="font-semibold text-gray-800">Doubt Classes</h4>
+                                <p class="text-sm text-gray-600">Personalized doubt clearing sessions</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- FAQ Section -->
+        <section class="py-16 md:py-24 bg-gray-100">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-800 inline-block relative pb-3" data-translate-key="faqTitle">
+                        Frequently Asked Questions
+                        <span class="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-24 h-1 bg-indigo-600 rounded"></span>
+                    </h2>
+                    <p class="text-lg text-gray-600 mt-6 max-w-2xl mx-auto" data-translate-key="faqSubtitle">Have questions? We have answers. Find quick solutions to common queries below.</p>
+                </div>
+                <div class="max-w-3xl mx-auto space-y-4">
+                    <!-- FAQ Item 1 -->
+                    <div class="faq-item bg-white rounded-lg shadow-sm overflow-hidden">
+                        <button class="faq-question w-full flex justify-between items-center text-left p-6 font-medium text-gray-700 text-lg hover:bg-gray-50 transition-colors duration-200">
+                            <span data-translate-key="faqQ1">What courses do you offer?</span>
+                            <i class="fas fa-chevron-down text-indigo-500"></i>
+                        </button>
+                        <div class="faq-answer px-6">
+                            <p class="text-gray-600 py-4 border-t border-gray-200" data-translate-key="faqA1">We offer comprehensive coaching for IIT-JEE (Main + Advanced), NEET (Medical), and Foundation courses for students in classes IX and X. Each program is designed to build a strong conceptual foundation.</p>
+                        </div>
+                    </div>
+                    <!-- FAQ Item 2 -->
+                    <div class="faq-item bg-white rounded-lg shadow-sm overflow-hidden">
+                        <button class="faq-question w-full flex justify-between items-center text-left p-6 font-medium text-gray-700 text-lg hover:bg-gray-50 transition-colors duration-200">
+                            <span data-translate-key="faqQ2">What is the admission process?</span>
+                             <i class="fas fa-chevron-down text-indigo-500"></i>
+                        </button>
+                        <div class="faq-answer px-6">
+                            <p class="text-gray-600 py-4 border-t border-gray-200" data-translate-key="faqA2">Admission is based on a scholarship-cum-admission test. This helps us understand a student's current level and offer scholarships based on their performance. You can contact our office for the test schedule.</p>
+                        </div>
+                    </div>
+                     <!-- FAQ Item 3 -->
+                    <div class="faq-item bg-white rounded-lg shadow-sm overflow-hidden">
+                        <button class="faq-question w-full flex justify-between items-center text-left p-6 font-medium text-gray-700 text-lg hover:bg-gray-50 transition-colors duration-200">
+                            <span data-translate-key="faqQ3">Do you provide doubt-clearing sessions?</span>
+                             <i class="fas fa-chevron-down text-indigo-500"></i>
+                        </button>
+                        <div class="faq-answer px-6">
+                            <p class="text-gray-600 py-4 border-t border-gray-200" data-translate-key="faqA3">Absolutely. Regular doubt-clearing sessions are an integral part of our curriculum. We have dedicated faculty available outside of regular class hours to ensure every student's queries are resolved.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Scholarship Modal -->
+    <div id="scholarship-modal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 opacity-0 pointer-events-none transition-all duration-300">
+        <div class="bg-white rounded-2xl shadow-2xl max-w-4xl w-full mx-4 max-h-[90vh] overflow-y-auto relative">
+            <!-- Close Button -->
+            <button id="close-modal" class="absolute top-4 right-4 text-gray-400 hover:text-gray-600 transition-colors duration-200 z-10">
+                <i class="fas fa-times text-2xl"></i>
+            </button>
+
+            <!-- Modal Content -->
+            <div class="p-8">
+                <!-- Header -->
+                <div class="text-center mb-8">
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4" data-translate-key="scholarshipTitle">
+                        🎓 Scholarship Programs
+                    </h2>
+                    <p class="text-lg text-gray-600" data-translate-key="scholarshipSubtitle">
+                        Unlock your potential with our comprehensive scholarship opportunities
+                    </p>
+                </div>
+
+                <!-- Scholarship Poster -->
+                <div class="flex justify-center mb-8">
+                    <img id="scholarship-poster" src="image/scholarship-poster.jpg" alt="Scholarship Poster" class="max-w-full h-auto rounded-lg shadow-lg" style="max-height: 600px;" onerror="this.src='https://placehold.co/800x600/f59e0b/ffffff?text=Scholarship+Poster'">
+                </div>
+
+                <!-- Scholarship Details -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+                    <!-- Eligibility Criteria -->
+                    <div class="bg-gradient-to-br from-blue-50 to-indigo-50 p-6 rounded-xl">
+                        <h3 class="text-xl font-bold text-gray-800 mb-4" data-translate-key="eligibilityTitle">
+                            📋 Eligibility Criteria
+                        </h3>
+                        <ul class="space-y-2 text-gray-700" data-translate-key="eligibilityList">
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-green-500 mr-2"></i>
+                                Students of Class IX to XII
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-green-500 mr-2"></i>
+                                Performance in admission test
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-green-500 mr-2"></i>
+                                Academic excellence
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-green-500 mr-2"></i>
+                                Financial need consideration
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Benefits -->
+                    <div class="bg-gradient-to-br from-green-50 to-emerald-50 p-6 rounded-xl">
+                        <h3 class="text-xl font-bold text-gray-800 mb-4" data-translate-key="benefitsTitle">
+                            🎁 Benefits
+                        </h3>
+                        <ul class="space-y-2 text-gray-700" data-translate-key="benefitsList">
+                            <li class="flex items-center">
+                                <i class="fas fa-star text-yellow-500 mr-2"></i>
+                                Up to 100% fee waiver
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-star text-yellow-500 mr-2"></i>
+                                Study materials provided
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-star text-yellow-500 mr-2"></i>
+                                Mentorship program
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-star text-yellow-500 mr-2"></i>
+                                Regular performance reviews
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Call to Action -->
+                <div class="text-center">
+                    <button class="bg-gradient-to-r from-indigo-600 to-blue-600 hover:from-indigo-700 hover:to-blue-700 text-white font-bold py-4 px-8 rounded-xl text-lg transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105 mb-4" data-translate-key="applyNowBtn">
+                        📝 Apply Now
+                    </button>
+                    <p class="text-sm text-gray-500" data-translate-key="contactInfo">
+                        For more information, contact our admission office
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- WhatsApp Floating Button -->
+    <a href="https://web.whatsapp.com/send?phone=918521793338&text=Hello!%20I%27m%20interested" target="_blank" class="fixed bottom-20 left-4 bg-green-500 hover:bg-green-600 text-white p-4 rounded-full shadow-lg transition-all duration-300 z-50 group w-14 h-14 flex items-center justify-center">
+        <i class="fab fa-whatsapp text-2xl"></i>
+        <span class="absolute left-full ml-3 top-1/2 transform -translate-y-1/2 bg-gray-800 text-white text-sm px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap">
+            Chat on WhatsApp
+        </span>
+    </a>
+
+    <!-- Scroll to Top Button -->
+    <button id="scrollToTopBtn" class="fixed bottom-4 right-4 bg-indigo-600 hover:bg-indigo-700 text-white p-3 rounded-full shadow-lg opacity-0 transition-opacity duration-300 z-40">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-8">
+        <div class="container mx-auto px-6 text-center">
+            <p data-translate-key="footerRights">&copy; 2024 Bansal Classes Patna. All Rights Reserved.</p>
+            <div class="mt-4 flex justify-center space-x-6">
+                <a href="#" class="hover:text-indigo-400"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" class="hover:text-indigo-400"><i class="fab fa-twitter"></i></a>
+                <a href="#" class="hover:text-indigo-400"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // Hide loading screen
+        window.addEventListener('load', () => {
+            const loading = document.getElementById('loading');
+            setTimeout(() => {
+                loading.classList.add('hidden');
+            }, 500);
+        });
+
+        document.addEventListener('DOMContentLoaded', () => {
+            // --- LANGUAGE TRANSLATION ---
+            const languageToggleBtn = document.getElementById('language-toggle-btn');
+            let currentLanguage = localStorage.getItem('language') || 'en';
+
+            const translations = {
+                en: {
+                    coachingName: "Bansal Classes Patna",
+                    navHome: "Home", navAbout: "About", navCourses: "Courses", navFaculty: "Faculty", navTestimonials: "Testimonials", navContact: "Contact",
+                    heroTitle: "Welcome to Bansal Classes Patna",
+                    heroSubtitle: "Your Gateway to Success in Competitive Exams",
+                    exploreCourses: "Explore Our Courses",
+                    statYears: "Years of Success", statStudents: "Students", statTeachers: "Teachers", statCentres: "Centres in India",
+                    whyChooseTitle: "Why Choose Bansal Classes?",
+                    whyChooseSubtitle: "We provide more than just classes; we provide a future.",
+                    featureFaculty: "Expert Faculty", featureFacultyDesc: "Our team consists of highly experienced educators from top institutions.",
+                    featureResults: "Proven Results", featureResultsDesc: "A legacy of producing top rankers in IIT-JEE and NEET consistently.",
+                    featureMaterial: "Comprehensive Material", featureMaterialDesc: "Meticulously designed study material that covers every aspect of the syllabus.",
+                    achievementsTitle: "Our Achievements", achievementsSubtitle: "A legacy of excellence and top ranks.",
+                    faqTitle: "Frequently Asked Questions", faqSubtitle: "Have questions? We have answers. Find quick solutions to common queries below.",
+                    faqQ1: "What courses do you offer?", faqA1: "We offer comprehensive coaching for IIT-JEE (Main + Advanced), NEET (Medical), and Foundation courses for students in classes IX and X. Each program is designed to build a strong conceptual foundation.",
+                    faqQ2: "What is the admission process?", faqA2: "Admission is based on a scholarship-cum-admission test. This helps us understand a student's current level and offer scholarships based on their performance. You can contact our office for the test schedule.",
+                    faqQ3: "Do you provide doubt-clearing sessions?", faqA3: "Absolutely. Regular doubt-clearing sessions are an integral part of our curriculum. We have dedicated faculty available outside of regular class hours to ensure every student's queries are resolved.",
+                    coreValuesTitle: "Our Core Values", coreValuesSubtitle: "Whole Differences",
+                    coreValuesDesc: "Bansal Classes Patna is committed to academic excellence, student-focused learning, and preparing aspirants for success in both JEE and NEET. With a structured curriculum designed for engineering and medical entrance exams, the institute ensures rigorous training that meets the evolving patterns of JEE Main, JEE Advanced, and NEET. Integrity and dedication drive its teaching philosophy, fostering an environment where students receive personalized mentorship, doubt resolution, and strategic guidance. Through innovative learning methods, updated study material, and disciplined practice sessions, Bansal Classes Patna empowers students to excel in competitive exams and secure admissions to prestigious IITs and medical colleges across India.",
+                    footerRights: "© 2024 Bansal Classes Patna. All Rights Reserved.",
+                    scholarshipBtn: "🎓 Scholarship Program", scholarshipTitle: "🎓 Scholarship Programs", scholarshipSubtitle: "Unlock your potential with our comprehensive scholarship opportunities",
+                    eligibilityTitle: "📋 Eligibility Criteria", benefitsTitle: "🎁 Benefits", applyNowBtn: "📝 Apply Now", contactInfo: "For more information, contact our admission office",
+                    eligibilityList: "Students of Class IX to XII • Performance in admission test • Academic excellence • Financial need consideration",
+                    benefitsList: "Up to 100% fee waiver • Study materials provided • Mentorship program • Regular performance reviews",
+                },
+                hi: {
+                    coachingName: "बंसल क्लासेस पटना",
+                    navHome: "होम", navAbout: "हमारे बारे में", navCourses: "कोर्स", navFaculty: "फैकल्टी", navTestimonials: "प्रशंसापत्र", navContact: "संपर्क",
+                    heroTitle: "बंसल क्लासेस पटना में आपका स्वागत है",
+                    heroSubtitle: "प्रतियोगी परीक्षाओं में सफलता के लिए आपका प्रवेश द्वार",
+                    exploreCourses: "हमारे कोर्स देखें",
+                    statYears: "सफलता के वर्ष", statStudents: "छात्र", statTeachers: "शिक्षक", statCentres: "भारत में केंद्र",
+                    whyChooseTitle: "बंसल क्लासेस क्यों चुनें?",
+                    whyChooseSubtitle: "हम सिर्फ कक्षाएं नहीं देते; हम भविष्य देते हैं।",
+                    featureFaculty: "विशेषज्ञ फैकल्टी", featureFacultyDesc: "हमारी टीम में शीर्ष संस्थानों से आए अत्यधिक अनुभवी शिक्षक शामिल हैं।",
+                    featureResults: "सिद्ध परिणाम", featureResultsDesc: "आईआईटी-जेईई और नीट में लगातार टॉप रैंकर्स तैयार करने की एक विरासत।",
+                    featureMaterial: "व्यापक सामग्री", featureMaterialDesc: "सिलेबस के हर पहलू को कवर करने वाली सावधानीपूर्वक डिज़ाइन की गई अध्ययन सामग्री।",
+                    achievementsTitle: "हमारी उपलब्धियां", achievementsSubtitle: "उत्कृष्टता और टॉप रैंक की एक विरासत।",
+                    faqTitle: "अक्सर पूछे जाने वाले प्रश्न", faqSubtitle: "सवाल हैं? हमारे पास जवाब हैं। नीचे सामान्य प्रश्नों के त्वरित समाधान खोजें।",
+                    faqQ1: "आप कौन से कोर्स ऑफर करते हैं?", faqA1: "हम आईआईटी-जेईई (मेन + एडवांस्ड), नीट (मेडिकल) और कक्षा IX और X के छात्रों के लिए फाउंडेशन कोर्स के लिए व्यापक कोचिंग ऑफर करते हैं। प्रत्येक कार्यक्रम को एक मजबूत वैचारिक नींव बनाने के लिए डिज़ाइन किया गया है।",
+                    faqQ2: "प्रवेश प्रक्रिया क्या है?", faqA2: "प्रवेश एक छात्रवृत्ति-कम-प्रवेश परीक्षा पर आधारित है। इससे हमें छात्र की वर्तमान स्तर को समझने और उनके प्रदर्शन के आधार पर छात्रवृत्ति प्रदान करने में मदद मिलती है। आप परीक्षा कार्यक्रम के लिए हमारे कार्यालय से संपर्क कर सकते हैं।",
+                    faqQ3: "क्या आप संदेह-समाशोधन सत्र प्रदान करते हैं?", faqA3: "बिल्कुल। नियमित संदेह-समाशोधन सत्र हमारे पाठ्यक्रम का एक अभिन्न अंग है। हमारे पास समर्पित फैकल्टी है जो नियमित कक्षा घंटों के बाहर उपलब्ध है ताकि यह सुनिश्चित किया जा सके कि प्रत्येक छात्र की क्वेरी हल हो जाए।",
+                    coreValuesTitle: "हमारे मूल मूल्य", coreValuesSubtitle: "पूर्ण अंतर",
+                    coreValuesDesc: "बंसल क्लासेस पटना शैक्षणिक उत्कृष्टता, छात्र-केंद्रित शिक्षण के लिए प्रतिबद्ध है, और जेईई और नीट दोनों में सफलता के लिए उम्मीदवारों को तैयार करता है। इंजीनियरिंग और मेडिकल प्रवेश परीक्षाओं के लिए डिज़ाइन किए गए एक संरचित पाठ्यक्रम के साथ, संस्थान यह सुनिश्चित करता है कि जेईई मेन, जेईई एडवांस्ड और नीट के विकसित पैटर्न को पूरा करने के लिए कठोर प्रशिक्षण। ईमानदारी और समर्पण इसके शिक्षण दर्शन को चलाते हैं, एक ऐसा वातावरण बनाते हैं जहां छात्र व्यक्तिगत मार्गदर्शन, संदेह समाधान और रणनीतिक मार्गदर्शन प्राप्त करते हैं। अभिनव शिक्षण विधियों, अद्यतन अध्ययन सामग्री और अनुशासित अभ्यास सत्रों के माध्यम से, बंसल क्लासेस पटना छात्रों को प्रतियोगी परीक्षाओं में उत्कृष्टता प्राप्त करने और भारत भर के प्रतिष्ठित आईआईटी और मेडिकल कॉलेजों में प्रवेश सुरक्षित करने के लिए सशक्त बनाता है।",
+                    footerRights: "© 2024 बंसल क्लासेस पटना। सर्वाधिकार सुरक्षित।",
+                    scholarshipBtn: "🎓 छात्रवृत्ति कार्यक्रम", scholarshipTitle: "🎓 छात्रवृत्ति कार्यक्रम", scholarshipSubtitle: "हमारी व्यापक छात्रवृत्ति अवसरों के साथ अपनी क्षमता को अनलॉक करें",
+                    eligibilityTitle: "📋 पात्रता मानदंड", benefitsTitle: "🎁 लाभ", applyNowBtn: "📝 अभी आवेदन करें", contactInfo: "अधिक जानकारी के लिए, हमारे प्रवेश कार्यालय से संपर्क करें",
+                    eligibilityList: "कक्षा IX से XII के छात्र • प्रवेश परीक्षा में प्रदर्शन • शैक्षणिक उत्कृष्टता • वित्तीय आवश्यकता विचार",
+                    benefitsList: "100% तक शुल्क छूट • अध्ययन सामग्री प्रदान की जाती है • मार्गदर्शन कार्यक्रम • नियमित प्रदर्शन समीक्षा",
+                }
+            };
+
+            function translatePage() {
+                document.querySelectorAll('[data-translate-key]').forEach(el => {
+                    const key = el.getAttribute('data-translate-key');
+                    el.innerText = translations[currentLanguage][key] || el.innerText;
+                });
+                languageToggleBtn.innerText = currentLanguage.toUpperCase();
+            }
+
+            languageToggleBtn.addEventListener('click', () => {
+                currentLanguage = currentLanguage === 'en' ? 'hi' : 'en';
+                localStorage.setItem('language', currentLanguage);
+                translatePage();
+            });
+
+            // Initial translation on page load
+            translatePage();
+
+            // Animated Statistics Counter
+            const statsSection = document.getElementById('stats');
+            if (statsSection) {
+                const counters = document.querySelectorAll('.stat-counter');
+                let animated = false;
+
+                const animateCounters = () => {
+                    if (animated) return;
+                    animated = true;
+                    counters.forEach(counter => {
+                        const target = +counter.getAttribute('data-target');
+                        const suffix = counter.getAttribute('data-suffix') || '';
+                        const duration = 2000;
+                        let current = 0;
+                        const increment = target / (duration / 16);
+
+                        const updateCounter = () => {
+                            current += increment;
+                            if (current < target) {
+                                counter.innerText = Math.ceil(current);
+                                requestAnimationFrame(updateCounter);
+                            } else {
+                                counter.innerText = target + suffix;
+                            }
+                        };
+                        updateCounter();
+                    });
+                };
+
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            animateCounters();
+                        }
+                    });
+                }, { threshold: 0.5 });
+                
+                observer.observe(statsSection);
+            }
+
+            // Achievement Slider
+            const slides = document.querySelectorAll('.achievement-slide');
+            if (slides.length > 0) {
+                const prevBtn = document.getElementById('prev-btn');
+                const nextBtn = document.getElementById('next-btn');
+                const dotsContainer = document.getElementById('achievement-dots');
+                let currentSlide = 0;
+                let slideInterval;
+
+                function showSlide(n) {
+                    slides.forEach((slide, index) => {
+                        slide.style.opacity = (index === n) ? '1' : '0';
+                    });
+                    updateDots(n);
+                    currentSlide = n;
+                }
+
+                function createDots() {
+                    dotsContainer.innerHTML = '';
+                    slides.forEach((_, index) => {
+                        const dot = document.createElement('button');
+                        dot.className = `w-3 h-3 rounded-full transition-all duration-300 ${index === 0 ? 'bg-indigo-600' : 'bg-white bg-opacity-50'}`;
+                        dot.addEventListener('click', () => {
+                            showSlide(index);
+                            resetInterval();
+                        });
+                        dotsContainer.appendChild(dot);
+                    });
+                }
+
+                function updateDots(activeIndex) {
+                    const dots = dotsContainer.querySelectorAll('button');
+                    dots.forEach((dot, index) => {
+                        if (index === activeIndex) {
+                            dot.className = 'w-3 h-3 rounded-full bg-indigo-600 transition-all duration-300';
+                        } else {
+                            dot.className = 'w-3 h-3 rounded-full bg-white bg-opacity-50 transition-all duration-300';
+                        }
+                    });
+                }
+
+                function nextSlide() {
+                    currentSlide = (currentSlide + 1) % slides.length;
+                    showSlide(currentSlide);
+                }
+                
+                function prevSlide() {
+                    currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+                    showSlide(currentSlide);
+                }
+                
+                function startSlider() {
+                    slideInterval = setInterval(nextSlide, 5000); // Change slide every 5 seconds
+                }
+                
+                function resetSliderInterval() {
+                    clearInterval(slideInterval);
+                    startSlider();
+                }
+
+                nextBtn.addEventListener('click', () => {
+                    nextSlide();
+                    resetSliderInterval();
+                });
+
+                prevBtn.addEventListener('click', () => {
+                    prevSlide();
+                    resetSliderInterval();
+                });
+
+                createDots();
+                showSlide(currentSlide);
+                startSlider();
+            }
+
+            // Scroll to Top Button
+            const scrollToTopBtn = document.getElementById('scrollToTopBtn');
+            window.addEventListener('scroll', () => {
+                if (window.pageYOffset > 300) {
+                    scrollToTopBtn.classList.remove('opacity-0');
+                    scrollToTopBtn.classList.add('opacity-100');
+                } else {
+                    scrollToTopBtn.classList.remove('opacity-100');
+                    scrollToTopBtn.classList.add('opacity-0');
+                }
+            });
+
+            scrollToTopBtn.addEventListener('click', () => {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+
+            // FAQ Accordion
+            const faqItems = document.querySelectorAll('.faq-item');
+            faqItems.forEach(item => {
+                const question = item.querySelector('.faq-question');
+                const answer = item.querySelector('.faq-answer');
+
+                question.addEventListener('click', () => {
+                    const isOpen = item.classList.contains('active');
+                    faqItems.forEach(otherItem => {
+                        otherItem.classList.remove('active');
+                        otherItem.querySelector('.faq-answer').style.maxHeight = null;
+                    });
+                    if (!isOpen) {
+                        item.classList.add('active');
+                        answer.style.maxHeight = answer.scrollHeight + 'px';
+                    }
+                });
+            });
+
+            // Scholarship Modal
+            const scholarshipBtn = document.getElementById('scholarship-btn');
+            const scholarshipModal = document.getElementById('scholarship-modal');
+            const closeModal = document.getElementById('close-modal');
+            const applyNowBtn = document.querySelector('[data-translate-key="applyNowBtn"]');
+
+            function openModal() {
+                scholarshipModal.classList.remove('opacity-0', 'pointer-events-none');
+                scholarshipModal.classList.add('opacity-100', 'pointer-events-auto');
+                document.body.style.overflow = 'hidden'; // Prevent background scrolling
+            }
+
+            function closeModalFunc() {
+                scholarshipModal.classList.remove('opacity-100', 'pointer-events-auto');
+                scholarshipModal.classList.add('opacity-0', 'pointer-events-none');
+                document.body.style.overflow = 'auto'; // Restore scrolling
+            }
+
+            // Event listeners
+            scholarshipBtn.addEventListener('click', openModal);
+            closeModal.addEventListener('click', closeModalFunc);
+            applyNowBtn.addEventListener('click', () => {
+                closeModalFunc();
+                // You can add form opening logic here or redirect to contact page
+                window.location.href = 'contact.html';
+            });
+
+            // Close modal when clicking outside
+            scholarshipModal.addEventListener('click', (e) => {
+                if (e.target === scholarshipModal) {
+                    closeModalFunc();
+                }
+            });
+
+            // Close modal with Escape key
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape' && !scholarshipModal.classList.contains('pointer-events-none')) {
+                    closeModalFunc();
+                }
+            });
+        });
+    </script>
+  </body>
+</html>
+

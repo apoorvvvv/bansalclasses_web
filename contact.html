@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Bansal Classes Patna</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .section-title {
+            font-size: 1.875rem;
+            font-weight: 700;
+            color: #1f2937;
+            margin-bottom: 0.5rem;
+            text-align: center;
+        }
+        @media (min-width: 768px) {
+            .section-title {
+                font-size: 2.25rem;
+            }
+        }
+        .section-subtitle {
+            font-size: 1.125rem;
+            color: #4b5563;
+            margin-bottom: 2rem;
+            text-align: center;
+            max-width: 42rem;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        @media (min-width: 768px) {
+            .section-subtitle {
+                margin-bottom: 3rem;
+            }
+        }
+        .nav-active {
+            color: #4f46e5;
+            font-weight: 600;
+        }
+        .tab-button {
+            padding-left: 1rem;
+            padding-right: 1rem;
+            padding-top: 0.5rem;
+            padding-bottom: 0.5rem;
+            font-weight: 600;
+            color: #4b5563;
+            border-radius: 0.5rem 0.5rem 0 0;
+            outline: none;
+            transition: color 0.3s;
+        }
+        .tab-button.active {
+            background-color: #ffffff;
+            color: #4f46e5;
+            border-bottom: 2px solid #4f46e5;
+        }
+        #gemini-response p {
+            margin-bottom: 0.75rem;
+        }
+        #gemini-response b, #gemini-response strong {
+            color: #4338ca;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+
+    <!-- Header -->
+    <header id="header" class="bg-white shadow-md fixed w-full z-20 top-0">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="index.html" class="flex items-center">
+                <img src="image/logo.webp" alt="Bansal Classes Patna" class="h-12 w-auto hover:opacity-80 transition-opacity duration-300">
+            </a>
+            <div class="hidden md:flex items-center space-x-8">
+                <a href="index.html" class="text-gray-600 hover:text-indigo-600" data-translate-key="navHome">Home</a>
+                <a href="about.html" class="text-gray-600 hover:text-indigo-600" data-translate-key="navAbout">About</a>
+                <a href="courses.html" class="text-gray-600 hover:text-indigo-600" data-translate-key="navCourses">Courses</a>
+                <a href="faculty.html" class="text-gray-600 hover:text-indigo-600" data-translate-key="navFaculty">Faculty</a>
+                <a href="reviews.html" class="text-gray-600 hover:text-indigo-600">Reviews</a>
+                <a href="contact.html" class="nav-active" data-translate-key="navContact">Contact</a>
+                <button id="language-toggle-btn" class="text-gray-600 hover:text-indigo-600 font-semibold text-sm border-2 rounded-full px-3 py-1">EN</button>
+            </div>
+            <button id="mobile-menu-button" class="md:hidden flex items-center">
+                 <i class="fas fa-bars text-indigo-600 text-2xl"></i>
+            </button>
+        </nav>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white">
+            <a href="index.html" class="block py-2 px-4 text-sm text-gray-700 hover:bg-indigo-50" data-translate-key="navHome">Home</a>
+            <a href="about.html" class="block py-2 px-4 text-sm text-gray-700 hover:bg-indigo-50" data-translate-key="navAbout">About</a>
+            <a href="courses.html" class="block py-2 px-4 text-sm text-gray-700 hover:bg-indigo-50" data-translate-key="navCourses">Courses</a>
+            <a href="faculty.html" class="block py-2 px-4 text-sm text-gray-700 hover:bg-indigo-50" data-translate-key="navFaculty">Faculty</a>
+            <a href="reviews.html" class="block py-2 px-4 text-sm text-gray-700 hover:bg-indigo-50">Reviews</a>
+            <a href="contact.html" class="block py-2 px-4 text-sm text-indigo-600 font-semibold hover:bg-indigo-50" data-translate-key="navContact">Contact</a>
+        </div>
+    </header>
+
+    <main class="pt-16">
+        <!-- Contact Section -->
+        <section id="contact" class="py-16 md:py-24 bg-white">
+            <div class="container mx-auto px-6">
+                <h2 class="section-title pt-8" data-translate-key="contactTitle">Get in Touch</h2>
+                <p class="section-subtitle" data-translate-key="contactSubtitle">Have questions? We'd love to hear from you. Reach out to us for admissions and inquiries.</p>
+                <div class="flex flex-col lg:flex-row gap-12">
+                    <!-- Contact Info & Map -->
+                    <div class="lg:w-1/2">
+                        <!-- Contact Info & Map -->
+                        <div class="space-y-6 bg-gray-50 p-8 rounded-lg shadow-md">
+                            <!-- Google Maps - Top -->
+                            <div class="bg-white rounded-lg overflow-hidden">
+                                <h4 class="font-bold text-xl text-gray-800 p-4 pb-2">📍 Our Location</h4>
+                                <div class="px-4 pb-4">
+                                    <div class="aspect-video w-full">
+                                        <iframe
+                                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3668.0!2d85.1189158!3d25.6142704!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39ed5950e20bb2af%3A0xc9aa872ba09ba9bf!2sBansal%20Classes%20Patna%20Center!5e0!3m2!1sen!2sin!4v1734567890!5m2!1sen!2sin"
+                                            width="100%"
+                                            height="100%"
+                                            style="border:0;"
+                                            allowfullscreen=""
+                                            loading="lazy"
+                                            referrerpolicy="no-referrer-when-downgrade">
+                                        </iframe>
+                                    </div>
+                                    <div class="mt-4 text-center">
+                                        <a href="https://www.google.com/maps/place/Bansal+Classes+Patna+Center/@25.6142704,85.1189158,17z/data=!3m1!4b1!4m6!3m5!1s0x39ed5950e20bb2af:0xc9aa872ba09ba9bf!8m2!3d25.6142704!4d85.1189158!16s%2Fg%2F11w_mgqpy4?entry=ttu&g_ep=EgoyMDI1MTAwOC4wIKXMDSoASAFQAw%3D%3D" target="_blank" class="text-indigo-600 hover:text-indigo-800 font-semibold inline-flex items-center">
+                                            <i class="fas fa-external-link-alt mr-2"></i>
+                                            View on Google Maps
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Contact Information -->
+                            <div class="flex items-start space-x-4">
+                                <div class="text-indigo-600 pt-1"><i class="fas fa-map-marker-alt fa-2x"></i></div>
+                                <div>
+                                    <h4 class="font-bold text-xl text-gray-800" data-translate-key="addressTitle">Address</h4>
+                                    <p class="text-gray-600" data-translate-key="addressInfo">Bansal Classes Boring Canal Road (Behind Hari Lal Sweets), Patna</p>
+                                </div>
+                            </div>
+                             <div class="flex items-start space-x-4">
+                                <div class="text-indigo-600 pt-1"><i class="fas fa-phone-alt fa-2x"></i></div>
+                                <div>
+                                    <h4 class="font-bold text-xl text-gray-800" data-translate-key="phoneTitle">Phone</h4>
+                                    <p class="text-gray-600" data-translate-key="phoneInfo">+91-91356 99903<br>+91-85215 53336</p>
+                                </div>
+                            </div>
+                             <div class="flex items-start space-x-4">
+                                <div class="text-indigo-600 pt-1"><i class="fas fa-envelope fa-2x"></i></div>
+                                <div>
+                                    <h4 class="font-bold text-xl text-gray-800" data-translate-key="emailTitle">Email</h4>
+                                    <p class="text-gray-600" data-translate-key="emailInfo">info@bansalpatna.com</p>
+                                </div>
+                            </div>
+                             <div class="flex items-start space-x-4">
+                                <div class="text-indigo-600 pt-1"><i class="fas fa-clock fa-2x"></i></div>
+                                <div>
+                                    <h4 class="font-bold text-xl text-gray-800">Open Hours</h4>
+                                    <p class="text-gray-600 font-semibold">Monday - Sunday</p>
+                                    <p class="text-gray-600">09 am to 07 pm</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Contact Form & AI Advisor -->
+                    <div class="lg:w-1/2">
+                        <div class="bg-gray-100 rounded-lg shadow-md">
+                            <!-- Tabs -->
+                            <div class="flex border-b">
+                                <button id="advisor-tab-button" class="tab-button active" data-translate-key="aiAdvisorTab">✨ AI Course Advisor</button>
+                                <button id="form-tab-button" class="tab-button" data-translate-key="generalInquiryTab">General Inquiry</button>
+                            </div>
+
+                            <!-- AI Advisor Content -->
+                            <div id="advisor-content" class="p-8">
+                                <h3 class="text-xl font-bold text-gray-800 mb-2" data-translate-key="aiAdvisorTitle">Unsure Which Course Is Right For You?</h3>
+                                <p class="text-gray-600 mb-4" data-translate-key="aiAdvisorDesc">Describe your current academic level, interests, and career goals. Our AI advisor will suggest the best path for you!</p>
+                                <div class="mb-4">
+                                    <label for="ai-prompt" class="block text-gray-700 font-medium mb-2" data-translate-key="tellUsLabel">Tell us about yourself:</label>
+                                    <textarea id="ai-prompt" name="ai-prompt" rows="5" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500" placeholder="e.g., I am in class 10, I enjoy biology and want to become a doctor. What should I do?" data-translate-key="placeholderText"></textarea>
+                                </div>
+                                <button id="get-recommendation" class="w-full bg-indigo-600 text-white font-bold py-3 px-6 rounded-lg hover:bg-indigo-700 transition duration-300 flex items-center justify-center">
+                                    <span id="button-text" data-translate-key="getRecommendationBtn">Get AI Recommendation</span>
+                                    <svg id="loading-spinner" class="animate-spin -ml-1 mr-3 h-5 w-5 text-white hidden" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                                        <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                                        <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                                    </svg>
+                                </button>
+                                <div id="gemini-response" class="mt-6 p-4 bg-indigo-50 rounded-lg text-gray-700 border border-indigo-200 min-h-[100px]"></div>
+                            </div>
+
+                            <!-- Contact Form Content -->
+                            <div id="form-content" class="p-8 hidden">
+                                <form>
+                                    <div class="mb-4">
+                                        <label for="name" class="block text-gray-700 font-medium mb-2" data-translate-key="nameLabel">Your Name</label>
+                                        <input type="text" id="name" name="name" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500" placeholder="Enter your full name" data-translate-key="namePlaceholder">
+                                    </div>
+                                    <div class="mb-4">
+                                        <label for="email" class="block text-gray-700 font-medium mb-2" data-translate-key="emailLabel">Email Address</label>
+                                        <input type="email" id="email" name="email" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500" placeholder="your@email.com" data-translate-key="emailPlaceholder">
+                                    </div>
+                                     <div class="mb-4">
+                                        <label for="phone" class="block text-gray-700 font-medium mb-2" data-translate-key="phoneLabel">Phone Number</label>
+                                        <input type="tel" id="phone" name="phone" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500" placeholder="+91 XXXXX XXXXX" data-translate-key="phonePlaceholder">
+                                    </div>
+                                    <div class="mb-4">
+                                        <label for="message" class="block text-gray-700 font-medium mb-2" data-translate-key="messageLabel">Message</label>
+                                        <textarea id="message" name="message" rows="4" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500" placeholder="Tell us about your inquiry..." data-translate-key="messagePlaceholder"></textarea>
+                                    </div>
+                                    <button type="submit" class="w-full bg-indigo-600 text-white font-bold py-3 px-6 rounded-lg hover:bg-indigo-700 transition duration-300" data-translate-key="sendMessageBtn">Send Message</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-8">
+        <div class="container mx-auto px-6 text-center">
+            <p data-translate-key="footerRights">&copy; 2024 Bansal Classes Patna. All Rights Reserved.</p>
+            <div class="mt-4 flex justify-center space-x-6">
+                <a href="#" class="hover:text-indigo-400"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" class="hover:text-indigo-400"><i class="fab fa-twitter"></i></a>
+                <a href="#" class="hover:text-indigo-400"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="ai-advisor.js"></script>
+    <script>
+        // --- LANGUAGE TRANSLATION ---
+        const languageToggleBtn = document.getElementById('language-toggle-btn');
+        let currentLanguage = localStorage.getItem('language') || 'en';
+
+        const translations = {
+            en: {
+                coachingName: "Bansal Classes Patna",
+                navHome: "Home", navAbout: "About", navCourses: "Courses", navFaculty: "Faculty", navTestimonials: "Testimonials", navContact: "Contact",
+                contactTitle: "Get in Touch",
+                contactSubtitle: "Have questions? We'd love to hear from you. Reach out to us for admissions and inquiries.",
+                addressTitle: "Address", addressInfo: "Bansal Classes Boring Canal Road (Behind Hari Lal Sweets), Patna",
+                phoneTitle: "Phone", phoneInfo: "+91-91356 99903\n+91-85215 53336",
+                emailTitle: "Email", emailInfo: "info@bansalpatna.com",
+                aiAdvisorTab: "✨ AI Course Advisor", generalInquiryTab: "General Inquiry",
+                aiAdvisorTitle: "Unsure Which Course Is Right For You?", aiAdvisorDesc: "Describe your current academic level, interests, and career goals. Our AI advisor will suggest the best path for you!",
+                tellUsLabel: "Tell us about yourself:", placeholderText: "e.g., I am in class 10, I enjoy biology and want to become a doctor. What should I do?",
+                getRecommendationBtn: "Get AI Recommendation",
+                nameLabel: "Your Name", namePlaceholder: "Enter your full name",
+                emailLabel: "Email Address", emailPlaceholder: "your@email.com",
+                phoneLabel: "Phone Number", phonePlaceholder: "+91 XXXXX XXXXX",
+                messageLabel: "Message", messagePlaceholder: "Tell us about your inquiry...",
+                sendMessageBtn: "Send Message",
+                footerRights: "© 2024 Bansal Classes Patna. All Rights Reserved.",
+            },
+            hi: {
+                coachingName: "बंसल क्लासेस पटना",
+                navHome: "होम", navAbout: "हमारे बारे में", navCourses: "कोर्स", navFaculty: "फैकल्टी", navTestimonials: "प्रशंसापत्र", navContact: "संपर्क",
+                contactTitle: "संपर्क करें",
+                contactSubtitle: "सवाल हैं? हम आपसे सुनना चाहेंगे। प्रवेश और पूछताछ के लिए हमसे संपर्क करें।",
+                addressTitle: "पता", addressInfo: "बंसल क्लासेस बोरींग कैनाल रोड (हरि लाल स्वीट्स के पीछे), पटना",
+                phoneTitle: "फोन", phoneInfo: "+91-91356 99903\n+91-85215 53336",
+                emailTitle: "ईमेल", emailInfo: "info@bansalpatna.com",
+                aiAdvisorTab: "✨ एआई कोर्स सलाहकार", generalInquiryTab: "सामान्य पूछताछ",
+                aiAdvisorTitle: "निश्चित नहीं है कि कौन सा कोर्स आपके लिए सही है?", aiAdvisorDesc: "अपनी वर्तमान शैक्षणिक स्तर, रुचियों और करियर लक्ष्यों का वर्णन करें। हमारा एआई सलाहकार आपके लिए सर्वोत्तम मार्ग का सुझाव देगा!",
+                tellUsLabel: "हमसे अपने बारे में बताएं:", placeholderText: "उदाहरण के लिए, मैं 10वीं कक्षा में हूं, मुझे जीव विज्ञान पसंद है और मैं डॉक्टर बनना चाहता हूं। मुझे क्या करना चाहिए?",
+                getRecommendationBtn: "एआई सिफारिश प्राप्त करें",
+                nameLabel: "आपका नाम", namePlaceholder: "अपना पूरा नाम दर्ज करें",
+                emailLabel: "ईमेल पता", emailPlaceholder: "your@email.com",
+                phoneLabel: "फोन नंबर", phonePlaceholder: "+91 XXXXX XXXXX",
+                messageLabel: "संदेश", messagePlaceholder: "अपनी पूछताछ के बारे में हमें बताएं...",
+                sendMessageBtn: "संदेश भेजें",
+                footerRights: "© 2024 बंसल क्लासेस पटना। सर्वाधिकार सुरक्षित।",
+            }
+        };
+
+        function translatePage() {
+            document.querySelectorAll('[data-translate-key]').forEach(el => {
+                const key = el.getAttribute('data-translate-key');
+                if (key === 'placeholderText') {
+                    el.placeholder = translations[currentLanguage][key] || el.placeholder;
+                } else {
+                    el.innerText = translations[currentLanguage][key] || el.innerText;
+                }
+            });
+            languageToggleBtn.innerText = currentLanguage.toUpperCase();
+        }
+
+        languageToggleBtn.addEventListener('click', () => {
+            currentLanguage = currentLanguage === 'en' ? 'hi' : 'en';
+            localStorage.setItem('language', currentLanguage);
+            translatePage();
+        });
+
+        // Initial translation on page load
+        translatePage();
+
+        // Tab switching logic
+        const advisorTabButton = document.getElementById('advisor-tab-button');
+        const formTabButton = document.getElementById('form-tab-button');
+        const advisorContent = document.getElementById('advisor-content');
+        const formContent = document.getElementById('form-content');
+
+        advisorTabButton.addEventListener('click', () => {
+            advisorContent.classList.remove('hidden');
+            formContent.classList.add('hidden');
+            advisorTabButton.classList.add('active');
+            formTabButton.classList.remove('active');
+        });
+
+        formTabButton.addEventListener('click', () => {
+            formContent.classList.remove('hidden');
+            advisorContent.classList.add('hidden');
+            formTabButton.classList.add('active');
+            advisorTabButton.classList.remove('active');
+        });
+
+        // Gemini API logic
+        const getRecommendationButton = document.getElementById('get-recommendation');
+        const aiPromptTextarea = document.getElementById('ai-prompt');
+        const geminiResponseDiv = document.getElementById('gemini-response');
+        const loadingSpinner = document.getElementById('loading-spinner');
+        const buttonText = document.getElementById('button-text');
+        
+        getRecommendationButton.addEventListener('click', async () => {
+            const userPrompt = aiPromptTextarea.value;
+            if (!userPrompt.trim()) {
+                geminiResponseDiv.innerHTML = '<p class="text-red-500">Please tell us something about yourself first.</p>';
+                return;
+            }
+
+            // Show loading state
+            buttonText.textContent = 'Generating...';
+            loadingSpinner.classList.remove('hidden');
+            getRecommendationButton.disabled = true;
+            geminiResponseDiv.textContent = 'Our AI advisor is thinking...';
+
+            const systemPrompt = `Act as an expert academic counselor for Bansal Classes Patna, a coaching institute preparing students for competitive exams. Your goal is to recommend the most suitable course for a prospective student based on their background and aspirations. The available courses are: 1. IIT-JEE (for engineering entrance exams for classes 11, 12, and droppers), 2. NEET (for medical entrance exams for classes 11, 12, and droppers), 3. Foundation Courses (for students in classes 9 & 10 to build a strong base for future competitive exams). Your response must be encouraging and friendly. Start by clearly recommending one of the three courses. Then, provide a concise explanation for your recommendation. Format the response in simple HTML using paragraphs (<p>) and bold tags (<b> or <strong>) for emphasis. Do not use markdown.`;
+
+            try {
+                const generatedText = await window.AIAdvisor.generateRecommendation(userPrompt, systemPrompt);
+                geminiResponseDiv.innerHTML = generatedText;
+
+            } catch (error) {
+                console.error("Error calling Gemini API:", error);
+                geminiResponseDiv.innerHTML = `<p class="text-red-500">Sorry, we couldn't generate a recommendation at this time. Please try again later or use our general inquiry form.</p>`;
+            } finally {
+                // Hide loading state
+                buttonText.textContent = 'Get AI Recommendation';
+                loadingSpinner.classList.add('hidden');
+                getRecommendationButton.disabled = false;
+            }
+        });
+
+    </script>
+
+    <!-- WhatsApp Floating Button -->
+    <a href="https://web.whatsapp.com/send?phone=918521793338&text=Hello!%20I%27m%20interested" target="_blank" class="fixed bottom-20 left-4 bg-green-500 hover:bg-green-600 text-white p-4 rounded-full shadow-lg transition-all duration-300 z-50 group w-14 h-14 flex items-center justify-center">
+        <i class="fab fa-whatsapp text-2xl"></i>
+        <span class="absolute left-full ml-3 top-1/2 transform -translate-y-1/2 bg-gray-800 text-white text-sm px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap">
+            Chat on WhatsApp
+        </span>
+    </a>
+
+</body>
+</html>
+
