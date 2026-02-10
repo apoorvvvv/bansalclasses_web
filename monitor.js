@@ -54,9 +54,22 @@ function generateDirectResponse(userPrompt, systemPrompt) {
     let reason = '';
     let features = [];
 
-    // Simple rule-based matching for now (will be replaced by actual AI)
-    if (lowerPrompt.includes('class 9') || lowerPrompt.includes('class 10') ||
-        lowerPrompt.includes('9th') || lowerPrompt.includes('10th')) {
+    // Check for class level first
+    const isClass9_10 = lowerPrompt.includes('class 9') || lowerPrompt.includes('class 10') ||
+                        lowerPrompt.includes('9th') || lowerPrompt.includes('10th');
+    const isClass11_12 = lowerPrompt.includes('class 11') || lowerPrompt.includes('class 12') ||
+                        lowerPrompt.includes('11th') || lowerPrompt.includes('12th') ||
+                        lowerPrompt.includes('dropper');
+    const wantsMedical = lowerPrompt.includes('doctor') || lowerPrompt.includes('medical') ||
+                        lowerPrompt.includes('neet') || lowerPrompt.includes('mbbs') ||
+                        lowerPrompt.includes('biology') || lowerPrompt.includes('medicine');
+    const wantsEngineering = lowerPrompt.includes('engineer') || lowerPrompt.includes('iit') ||
+                          lowerPrompt.includes('jee') || lowerPrompt.includes('tech') ||
+                          lowerPrompt.includes('physics') || lowerPrompt.includes('math') ||
+                          lowerPrompt.includes('chemistry');
+
+    // Rule-based matching
+    if (isClass9_10) {
         course = 'Foundation Course';
         reason = 'Since you are in class 9 or 10, this program builds your conceptual base in science subjects.';
         features = [
@@ -65,8 +78,38 @@ function generateDirectResponse(userPrompt, systemPrompt) {
             'Regular practice tests and doubt-clearing sessions',
             'Experienced faculty focused on concept clarity'
         ];
-    } else if (lowerPrompt.includes('doctor') || lowerPrompt.includes('medical') ||
-               lowerPrompt.includes('neet') || lowerPrompt.includes('mbbs')) {
+    } else if (isClass11_12) {
+        // Class 11-12 or dropper - determine based on interest
+        if (wantsMedical) {
+            course = 'NEET Course';
+            reason = 'With your class 11-12 background and medical interests, focused NEET preparation is ideal.';
+            features = [
+                'Comprehensive Biology, Physics, Chemistry coverage',
+                'NEET-specific test series and mock exams',
+                'Regular doubt-clearing with subject experts',
+                'Study material aligned with latest NEET pattern'
+            ];
+        } else if (wantsEngineering) {
+            course = 'IIT-JEE Course';
+            reason = 'With your class 11-12 background and engineering interests, rigorous JEE preparation is recommended.';
+            features = [
+                'In-depth coverage of Physics, Chemistry, Mathematics',
+                'JEE Main + Advanced test series',
+                'Problem-solving workshops and strategic guidance',
+                'Past year question analysis and pattern discussion'
+            ];
+        } else {
+            // Class 11-12 but unclear goal - recommend both or ask to contact
+            course = 'Foundation Course (Advanced)';
+            reason = 'Since you are in class 11-12, we recommend connecting with our counselors for personalized guidance on whether to pursue JEE or NEET based on your strengths.';
+            features = [
+                'Comprehensive science curriculum',
+                'Competitive exam readiness',
+                'Personal attention and mentorship',
+                'Regular performance tracking'
+            ];
+        }
+    } else if (wantsMedical) {
         course = 'NEET Course';
         reason = 'Your medical aspirations require focused preparation for NEET entrance exam.';
         features = [
@@ -75,8 +118,7 @@ function generateDirectResponse(userPrompt, systemPrompt) {
             'Regular doubt-clearing with subject experts',
             'Study material aligned with latest NEET pattern'
         ];
-    } else if (lowerPrompt.includes('engineer') || lowerPrompt.includes('iit') ||
-               lowerPrompt.includes('jee') || lowerPrompt.includes('tech')) {
+    } else if (wantsEngineering) {
         course = 'IIT-JEE Course';
         reason = 'Engineering dreams need rigorous preparation for JEE Main and Advanced.';
         features = [
@@ -86,7 +128,7 @@ function generateDirectResponse(userPrompt, systemPrompt) {
             'Past year question analysis and pattern discussion'
         ];
     } else {
-        // Default recommendation based on typical queries
+        // Default recommendation
         course = 'Foundation Course';
         reason = 'Based on your interest, we recommend starting with our Foundation program to build strong fundamentals.';
         features = [
