@@ -44,14 +44,16 @@ function generateConversationalResponse(userPrompt) {
     let html = '';
 
     // Analyze student context
+    const classMatch = prompt.match(/\b(?:class|std|standard|grade)\s*(8|9|10|11|12)\b|\b(8|9|10|11|12)(?:st|nd|rd|th)\b/);
+    const detectedClass = classMatch ? Number(classMatch[1] || classMatch[2]) : null;
     const hasPassed12 = prompt.includes('passed') && (prompt.includes('12') || prompt.includes('12th') || prompt.includes('twelfth'));
     const isDropper = prompt.includes('dropper');
     const likesBiology = prompt.includes('biology') || prompt.includes('bio') || prompt.includes('life science');
     const likesMath = prompt.includes('math') || prompt.includes('physics') || prompt.includes('chemistry') || prompt.includes('calculation');
     const wantsMedical = prompt.includes('doctor') || prompt.includes('medical') || prompt.includes('neet') || prompt.includes('mbbs') || prompt.includes('medicine');
     const wantsEngineering = prompt.includes('engineer') || prompt.includes('engineering') || prompt.includes('jee') || prompt.includes('iit') || prompt.includes('tech');
-    const isClass9_10 = prompt.includes('class 9') || prompt.includes('class 10') || prompt.includes('9th') || prompt.includes('10th');
-    const isClass11_12 = prompt.includes('class 11') || prompt.includes('class 12') || prompt.includes('11th') || prompt.includes('12th');
+    const isClass8_10 = (detectedClass >= 8 && detectedClass <= 10) || prompt.includes('class 8') || prompt.includes('8th') || prompt.includes('class 9') || prompt.includes('class 10') || prompt.includes('9th') || prompt.includes('10th');
+    const isClass11_12 = (detectedClass >= 11 && detectedClass <= 12) || prompt.includes('class 11') || prompt.includes('class 12') || prompt.includes('11th') || prompt.includes('12th');
 
     // Generate contextual, conversational response
     if (hasPassed12) {
@@ -70,8 +72,8 @@ function generateConversationalResponse(userPrompt) {
         } else {
             html = `<p>Welcome, dropper! Taking a year to focus on your goals shows commitment and maturity.</p><p>To recommend the best path, I need to understand: do you want to prepare for <strong>medical (NEET)</strong> or <strong>engineering (JEE)</strong>?</p>`;
         }
-    } else if (isClass9_10) {
-        html = `<p>It's great that you're thinking ahead! Classes 9-10 are the perfect time to build a strong foundation for future competitive exams.</p><p>Our <strong>Foundation Course</strong> will help you:</p><p><strong>•</strong> Master concepts in physics, chemistry, biology, and mathematics<br><strong>•</strong> Develop problem-solving skills from an early age<br><strong>•</strong> Prepare systematically for JEE/NEET syllabus<br><strong>•</strong> Build exam temperament with regular tests</p><p>This foundation will give you a significant advantage when you reach classes 11-12!</p>`;
+    } else if (isClass8_10) {
+        html = `<p>Great start! Since you're in class 8-10, our <strong>Foundation Course</strong> is the best fit for you right now.</p><p>This course helps you:</p><p><strong>•</strong> Build strong basics in physics, chemistry, biology, and mathematics<br><strong>•</strong> Develop problem-solving skills early<br><strong>•</strong> Prepare step-by-step for future JEE/NEET-level learning<br><strong>•</strong> Build confidence with regular tests and doubt support</p><p>Starting from class 8 gives you a real long-term advantage.</p>`;
     } else if (isClass11_12) {
         if (wantsMedical) {
             html = `<p>I see you're in class 11-12 and interested in medical! That's a great path with excellent career prospects.</p><p>Our <strong>NEET Course</strong> for class 11-12 students covers:</p><p><strong>•</strong> Biology with detailed NCERT-based teaching<br><strong>•</strong> Physics and chemistry tailored for medical entrance<br><strong>•</strong> 2-year integrated preparation plan<br><strong>•</strong> Regular NEET mock tests with analysis</p><p>Starting early in class 11 gives you an edge. Ready to begin this journey?</p>`;
@@ -89,7 +91,7 @@ function generateConversationalResponse(userPrompt) {
     } else if (wantsEngineering) {
         html = `<p>Engineering opens doors to countless opportunities! IIT-JEE preparation requires dedication and smart work.</p><p>Our <strong>IIT-JEE Course</strong> includes:</p><p><strong>•</strong> Rigorous math, physics, chemistry training<br><strong>•</strong> JEE Main + Advanced test series<br><strong>•</strong> Problem-solving methodology<br><strong>•</strong> Past year question analysis</p><p>Which class are you currently in? This will help me recommend the right batch.</p>`;
     } else {
-        html = `<p>Hello! I'm here to help you find the perfect course at Bansal Classes.</p><p>Could you share a bit about yourself? For example:</p><p><strong>•</strong> What class are you in? (9, 10, 11, 12, or dropper)<br><strong>•</strong> What subjects interest you most?<br><strong>•</strong> What career goal do you have? (medical, engineering, etc.)</p><p>Once I understand your background, I can give you a personalized recommendation!</p>`;
+        html = `<p>Hello! I'm here to help you find the perfect course at Bansal Classes.</p><p>Could you share a bit about yourself? For example:</p><p><strong>•</strong> What class are you in? (8, 9, 10, 11, 12, or dropper)<br><strong>•</strong> What subjects interest you most?<br><strong>•</strong> What career goal do you have? (medical, engineering, etc.)</p><p>Once I understand your background, I can give you a personalized recommendation!</p>`;
     }
 
     return html;

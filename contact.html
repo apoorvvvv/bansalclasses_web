@@ -179,7 +179,7 @@
                                 <p class="text-gray-600 mb-4" data-translate-key="aiAdvisorDesc">Describe your current academic level, interests, and career goals. Our AI advisor will suggest the best path for you!</p>
                                 <div class="mb-4">
                                     <label for="ai-prompt" class="block text-gray-700 font-medium mb-2" data-translate-key="tellUsLabel">Tell us about yourself:</label>
-                                    <textarea id="ai-prompt" name="ai-prompt" rows="5" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500" placeholder="e.g., I am in class 10, I enjoy biology and want to become a doctor. What should I do?" data-translate-key="placeholderText"></textarea>
+                                    <textarea id="ai-prompt" name="ai-prompt" rows="5" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500" placeholder="e.g., I am in class 8, I enjoy science and want to prepare early for JEE/NEET. What should I do?" data-translate-key="placeholderText"></textarea>
                                 </div>
                                 <button id="get-recommendation" class="w-full bg-indigo-600 text-white font-bold py-3 px-6 rounded-lg hover:bg-indigo-700 transition duration-300 flex items-center justify-center">
                                     <span id="button-text" data-translate-key="getRecommendationBtn">Get AI Recommendation</span>
@@ -250,7 +250,7 @@
                 emailTitle: "Email", emailInfo: "info@bansalpatna.com",
                 aiAdvisorTab: "✨ AI Course Advisor", generalInquiryTab: "General Inquiry",
                 aiAdvisorTitle: "Unsure Which Course Is Right For You?", aiAdvisorDesc: "Describe your current academic level, interests, and career goals. Our AI advisor will suggest the best path for you!",
-                tellUsLabel: "Tell us about yourself:", placeholderText: "e.g., I am in class 10, I enjoy biology and want to become a doctor. What should I do?",
+                tellUsLabel: "Tell us about yourself:", placeholderText: "e.g., I am in class 8, I enjoy science and want to prepare early for JEE/NEET. What should I do?",
                 getRecommendationBtn: "Get AI Recommendation",
                 nameLabel: "Your Name", namePlaceholder: "Enter your full name",
                 emailLabel: "Email Address", emailPlaceholder: "your@email.com",
@@ -341,7 +341,7 @@
             getRecommendationButton.disabled = true;
             geminiResponseDiv.textContent = 'Our AI advisor is thinking...';
 
-            const systemPrompt = `Act as an expert academic counselor for Bansal Classes Patna, a coaching institute preparing students for competitive exams. Your goal is to recommend the most suitable course for a prospective student based on their background and aspirations. The available courses are: 1. IIT-JEE (for engineering entrance exams for classes 11, 12, and droppers), 2. NEET (for medical entrance exams for classes 11, 12, and droppers), 3. Foundation Courses (for students in classes 9 & 10 to build a strong base for future competitive exams). Your response must be encouraging and friendly. Start by clearly recommending one of the three courses. Then, provide a concise explanation for your recommendation. Format the response in simple HTML using paragraphs (<p>) and bold tags (<b> or <strong>) for emphasis. Do not use markdown.`;
+            const systemPrompt = `Act as an expert academic counselor for Bansal Classes Patna, a coaching institute preparing students for competitive exams. Your goal is to recommend the most suitable course for a prospective student based on their background and aspirations. The available courses are: 1. IIT-JEE (for engineering entrance exams for classes 11, 12, and droppers), 2. NEET (for medical entrance exams for classes 11, 12, and droppers), 3. Foundation Courses (for students in classes 8, 9, and 10 to build a strong base for future competitive exams). Your response must be encouraging and friendly. Start by clearly recommending one of the three courses. Then, provide a concise explanation for your recommendation. Format the response in simple HTML using paragraphs (<p>) and bold tags (<b> or <strong>) for emphasis. Do not use markdown.`;
 
             try {
                 const generatedText = await window.AIAdvisor.generateRecommendation(userPrompt, systemPrompt);
@@ -370,4 +370,3 @@
 
 </body>
 </html>
-
