@@ -5,11 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact Us - Bansal Classes Patna</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Sora:wght%40500;600;700;800&family=Manrope:wght%40400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <link rel="stylesheet" href="revamp.css">
     <style>
         body {
-            font-family: 'Inter', sans-serif;
+            font-family: 'Manrope', sans-serif;
         }
         .section-title {
             font-size: 1.875rem;
@@ -77,9 +79,9 @@
                 <a href="index.html" class="text-gray-600 hover:text-indigo-600" data-translate-key="navHome">Home</a>
                 <a href="about.html" class="text-gray-600 hover:text-indigo-600" data-translate-key="navAbout">About</a>
                 <a href="courses.html" class="text-gray-600 hover:text-indigo-600" data-translate-key="navCourses">Courses</a>
-                <a href="faculty.html" class="text-gray-600 hover:text-indigo-600" data-translate-key="navFaculty">Faculty</a>
                 <a href="reviews.html" class="text-gray-600 hover:text-indigo-600">Reviews</a>
                 <a href="contact.html" class="nav-active" data-translate-key="navContact">Contact</a>
+                <a href="https://play.google.com/store/apps/details?id=com.bansal.elearning&hl=en" target="_blank" rel="noopener noreferrer" class="bg-indigo-600 hover:bg-indigo-700 text-white font-semibold text-sm px-4 py-2 rounded-full shadow" data-translate-key="navInstallApp">Install App</a>
                 <button id="language-toggle-btn" class="text-gray-600 hover:text-indigo-600 font-semibold text-sm border-2 rounded-full px-3 py-1">EN</button>
             </div>
             <button id="mobile-menu-button" class="md:hidden flex items-center">
@@ -91,9 +93,9 @@
             <a href="index.html" class="block py-2 px-4 text-sm text-gray-700 hover:bg-indigo-50" data-translate-key="navHome">Home</a>
             <a href="about.html" class="block py-2 px-4 text-sm text-gray-700 hover:bg-indigo-50" data-translate-key="navAbout">About</a>
             <a href="courses.html" class="block py-2 px-4 text-sm text-gray-700 hover:bg-indigo-50" data-translate-key="navCourses">Courses</a>
-            <a href="faculty.html" class="block py-2 px-4 text-sm text-gray-700 hover:bg-indigo-50" data-translate-key="navFaculty">Faculty</a>
             <a href="reviews.html" class="block py-2 px-4 text-sm text-gray-700 hover:bg-indigo-50">Reviews</a>
             <a href="contact.html" class="block py-2 px-4 text-sm text-indigo-600 font-semibold hover:bg-indigo-50" data-translate-key="navContact">Contact</a>
+            <a href="https://play.google.com/store/apps/details?id=com.bansal.elearning&hl=en" target="_blank" rel="noopener noreferrer" class="block py-2 px-4 text-sm font-semibold text-indigo-700 hover:bg-indigo-50" data-translate-key="navInstallApp">Install App</a>
         </div>
     </header>
 
@@ -214,6 +216,22 @@
                                 </form>
                             </div>
                         </div>
+                        <div class="mt-6 bg-white rounded-xl border border-indigo-100 shadow-md p-6">
+                            <div class="flex flex-col sm:flex-row items-center gap-6">
+                                <div class="flex-1 text-center sm:text-left">
+                                    <h3 class="text-xl font-bold text-gray-800 mb-2" data-translate-key="appBlockTitle">Get the Bansal App</h3>
+                                    <p class="text-gray-600 mb-4" data-translate-key="appBlockDesc">Install the official Bansal eLearning app for class updates, study content, test schedules, and announcements.</p>
+                                    <a href="https://play.google.com/store/apps/details?id=com.bansal.elearning&hl=en" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-3 bg-gray-900 hover:bg-black text-white font-semibold px-5 py-3 rounded-xl transition-all duration-300">
+                                        <i class="fab fa-google-play text-xl"></i>
+                                        <span data-translate-key="appBlockButton">Get it on Google Play</span>
+                                    </a>
+                                </div>
+                                <div class="text-center">
+                                    <img src="image/playstore-qr.png" alt="Scan QR to install Bansal app" class="w-36 h-36 mx-auto rounded-lg border border-gray-200 shadow-sm">
+                                    <p class="text-sm text-gray-600 mt-2" data-translate-key="appBlockScan">Scan to install</p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -242,7 +260,7 @@
         const translations = {
             en: {
                 coachingName: "Bansal Classes Patna",
-                navHome: "Home", navAbout: "About", navCourses: "Courses", navFaculty: "Faculty", navTestimonials: "Testimonials", navContact: "Contact",
+                navHome: "Home", navAbout: "About", navCourses: "Courses", navTestimonials: "Testimonials", navContact: "Contact", navInstallApp: "Install App",
                 contactTitle: "Get in Touch",
                 contactSubtitle: "Have questions? We'd love to hear from you. Reach out to us for admissions and inquiries.",
                 addressTitle: "Address", addressInfo: "Bansal Classes Boring Canal Road (Behind Hari Lal Sweets), Patna",
@@ -251,6 +269,10 @@
                 aiAdvisorTab: "✨ AI Course Advisor", generalInquiryTab: "General Inquiry",
                 aiAdvisorTitle: "Unsure Which Course Is Right For You?", aiAdvisorDesc: "Describe your current academic level, interests, and career goals. Our AI advisor will suggest the best path for you!",
                 tellUsLabel: "Tell us about yourself:", placeholderText: "e.g., I am in class 8, I enjoy science and want to prepare early for JEE/NEET. What should I do?",
+                appBlockTitle: "Get the Bansal App",
+                appBlockDesc: "Install the official Bansal eLearning app for class updates, study content, test schedules, and announcements.",
+                appBlockButton: "Get it on Google Play",
+                appBlockScan: "Scan to install",
                 getRecommendationBtn: "Get AI Recommendation",
                 nameLabel: "Your Name", namePlaceholder: "Enter your full name",
                 emailLabel: "Email Address", emailPlaceholder: "your@email.com",
@@ -261,7 +283,7 @@
             },
             hi: {
                 coachingName: "बंसल क्लासेस पटना",
-                navHome: "होम", navAbout: "हमारे बारे में", navCourses: "कोर्स", navFaculty: "फैकल्टी", navTestimonials: "प्रशंसापत्र", navContact: "संपर्क",
+                navHome: "होम", navAbout: "हमारे बारे में", navCourses: "कोर्स", navTestimonials: "प्रशंसापत्र", navContact: "संपर्क", navInstallApp: "ऐप इंस्टॉल करें",
                 contactTitle: "संपर्क करें",
                 contactSubtitle: "सवाल हैं? हम आपसे सुनना चाहेंगे। प्रवेश और पूछताछ के लिए हमसे संपर्क करें।",
                 addressTitle: "पता", addressInfo: "बंसल क्लासेस बोरींग कैनाल रोड (हरि लाल स्वीट्स के पीछे), पटना",
@@ -270,6 +292,10 @@
                 aiAdvisorTab: "✨ एआई कोर्स सलाहकार", generalInquiryTab: "सामान्य पूछताछ",
                 aiAdvisorTitle: "निश्चित नहीं है कि कौन सा कोर्स आपके लिए सही है?", aiAdvisorDesc: "अपनी वर्तमान शैक्षणिक स्तर, रुचियों और करियर लक्ष्यों का वर्णन करें। हमारा एआई सलाहकार आपके लिए सर्वोत्तम मार्ग का सुझाव देगा!",
                 tellUsLabel: "हमसे अपने बारे में बताएं:", placeholderText: "उदाहरण के लिए, मैं 10वीं कक्षा में हूं, मुझे जीव विज्ञान पसंद है और मैं डॉक्टर बनना चाहता हूं। मुझे क्या करना चाहिए?",
+                appBlockTitle: "बंसल ऐप डाउनलोड करें",
+                appBlockDesc: "क्लास अपडेट, स्टडी कंटेंट, टेस्ट शेड्यूल और घोषणाएं पाने के लिए आधिकारिक बंसल ई-लर्निंग ऐप इंस्टॉल करें।",
+                appBlockButton: "Google Play से इंस्टॉल करें",
+                appBlockScan: "इंस्टॉल करने के लिए स्कैन करें",
                 getRecommendationBtn: "एआई सिफारिश प्राप्त करें",
                 nameLabel: "आपका नाम", namePlaceholder: "अपना पूरा नाम दर्ज करें",
                 emailLabel: "ईमेल पता", emailPlaceholder: "your@email.com",
@@ -361,7 +387,7 @@
     </script>
 
     <!-- WhatsApp Floating Button -->
-    <a href="https://web.whatsapp.com/send?phone=918521793338&text=Hello!%20I%27m%20interested" target="_blank" class="fixed bottom-20 left-4 bg-green-500 hover:bg-green-600 text-white p-4 rounded-full shadow-lg transition-all duration-300 z-50 group w-14 h-14 flex items-center justify-center">
+    <a href="https://wa.me/918521793338?text=Hello!%20I%27m%20interested" target="_blank" class="fixed bottom-20 left-4 bg-green-500 hover:bg-green-600 text-white p-4 rounded-full shadow-lg transition-all duration-300 z-50 group w-14 h-14 flex items-center justify-center">
         <i class="fab fa-whatsapp text-2xl"></i>
         <span class="absolute left-full ml-3 top-1/2 transform -translate-y-1/2 bg-gray-800 text-white text-sm px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap">
             Chat on WhatsApp

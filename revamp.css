@@ -1,0 +1,135 @@
+:root {
+    --brand-900: #0b2948;
+    --brand-700: #134a7b;
+    --brand-500: #1d6fa8;
+    --accent-500: #f59e0b;
+    --surface-soft: #edf5ff;
+    --text-main: #0f172a;
+    --text-muted: #475569;
+    --card-shadow: 0 14px 40px rgba(15, 23, 42, 0.08);
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Manrope', sans-serif;
+    color: var(--text-main);
+    background:
+        radial-gradient(1100px 500px at 0% -12%, rgba(29, 111, 168, 0.14), transparent 70%),
+        radial-gradient(900px 420px at 100% -10%, rgba(245, 158, 11, 0.13), transparent 68%),
+        #f8fbff;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.section-title {
+    font-family: 'Sora', sans-serif;
+    letter-spacing: -0.02em;
+}
+
+#header {
+    background: rgba(255, 255, 255, 0.88) !important;
+    border-bottom: 1px solid rgba(15, 23, 42, 0.1);
+    box-shadow: 0 8px 24px rgba(15, 23, 42, 0.08) !important;
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+}
+
+#mobile-menu {
+    border-top: 1px solid rgba(15, 23, 42, 0.08);
+}
+
+.nav-active {
+    color: var(--brand-700) !important;
+    font-weight: 700;
+}
+
+.text-indigo-600,
+.text-indigo-700,
+.text-sky-600,
+.text-sky-700 {
+    color: var(--brand-700) !important;
+}
+
+.bg-indigo-50,
+.bg-sky-50 {
+    background-color: var(--surface-soft) !important;
+}
+
+.bg-indigo-600,
+.bg-sky-600 {
+    background: linear-gradient(135deg, var(--brand-700), var(--brand-500)) !important;
+}
+
+.hover\:bg-indigo-700:hover,
+.hover\:bg-sky-700:hover {
+    background: linear-gradient(135deg, var(--brand-900), var(--brand-700)) !important;
+}
+
+.hover\:text-indigo-600:hover,
+.hover\:text-sky-600:hover {
+    color: var(--brand-700) !important;
+}
+
+.border-indigo-200 {
+    border-color: #bfdbfe !important;
+}
+
+.focus\:ring-indigo-500:focus {
+    --tw-ring-color: rgba(29, 111, 168, 0.5) !important;
+}
+
+.rounded-lg,
+.rounded-xl,
+.rounded-2xl {
+    border-radius: 1rem;
+}
+
+.shadow-md,
+.shadow-lg,
+.shadow-xl,
+.shadow-2xl {
+    box-shadow: var(--card-shadow) !important;
+}
+
+button,
+a,
+.transition,
+.transition-all {
+    transition: all 0.25s ease;
+}
+
+a.bg-indigo-600:hover,
+button.bg-indigo-600:hover,
+a.bg-sky-600:hover,
+button.bg-sky-600:hover {
+    transform: translateY(-1px);
+}
+
+footer {
+    background: #0f172a !important;
+}
+
+.reveal-on-scroll {
+    opacity: 0;
+    transform: translateY(18px);
+    transition: opacity 0.55s ease, transform 0.55s ease;
+}
+
+.reveal-visible {
+    opacity: 1;
+    transform: none;
+}
+
+@media (max-width: 767px) {
+    .container {
+        padding-left: 1rem !important;
+        padding-right: 1rem !important;
+    }
+}
